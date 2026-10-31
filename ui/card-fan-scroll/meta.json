@@ -1,0 +1,74 @@
+{
+  "slug": "card-fan-scroll",
+  "name": "Scroll Card Fan",
+  "description": "A GSAP ScrollTrigger card fan for React: a pinned section deals a hand of cards one by one into an arc as you scroll, each popping in on an elastic ease while the fan re-centres, then folds back into a stack. Hover lifts a card to the front; a click sends a bounce rippling through the hand.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/CardFanScroll.tsx",
+  "usage": "import CardFanScroll from '@/components/mfa/CardFanScroll'\n\n// The section is `length` screens tall; its stage stays pinned while the cards are dealt.\nexport default function Skills() {\n  return (\n    <CardFanScroll\n      heading={<h2 className=\"text-7xl font-bold\">Toolkit</h2>}\n      cards={[\n        {title: 'Motion', tag: 'Easing & timing', color: '#ff5b2e', ink: '#1f0a03'},\n        {title: 'Shaders', tag: 'GPU', note: 'Now exploring', color: '#111', ink: '#c6ff3d'},\n        // …\n      ]}\n    />\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "cards",
+      "type": "{title, tag, note?, color, ink}[]",
+      "default": "8 studio disciplines",
+      "description": "The hand, dealt left to right. `note` adds an outlined pill above the title."
+    },
+    {
+      "name": "heading",
+      "type": "ReactNode",
+      "default": "title and subtitle",
+      "description": "Content centred above the fan."
+    },
+    {
+      "name": "spread",
+      "type": "number",
+      "default": "3.5",
+      "description": "Degrees between neighbouring cards on the wheel.",
+      "control": {"kind": "range", "value": 3.5, "min": 1.5, "max": 6, "step": 0.1}
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "default": "4",
+      "description": "Section height in screens: more is a slower deal.",
+      "control": {"kind": "range", "value": 4, "min": 2.5, "max": 7, "step": 0.5}
+    },
+    {
+      "name": "fold",
+      "type": "boolean",
+      "default": "true",
+      "description": "Gather the fan back into a stack at the end of the section.",
+      "control": {"kind": "switch", "value": true}
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#1c1b1d'",
+      "description": "Section background.",
+      "control": {"kind": "color", "value": "#1c1b1d"}
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "default": "'#f6efe6'",
+      "description": "Heading colour."
+    },
+    {
+      "name": "scroller",
+      "type": "HTMLElement | null",
+      "default": "null (window)",
+      "description": "The scrolling element, when it isn't the window."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the section."
+    }
+  ]
+}

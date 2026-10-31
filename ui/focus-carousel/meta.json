@@ -1,0 +1,82 @@
+{
+  "slug": "focus-carousel",
+  "name": "Focus Carousel",
+  "description": "An infinite image carousel for React with one image in focus: it's large and in colour, the rest shrink, grey, blur and fade away from it, with its title and caption underneath. Drag with momentum, wheel, arrow keys or click. No dependencies.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/FocusCarousel.tsx",
+  "usage": "import FocusCarousel from '@/components/mfa/FocusCarousel'\n\nconst work = [\n  {src: '/work/marrow.jpg', title: 'Marrow', caption: 'Quiet studio hours'},\n  {src: '/work/iris.jpg', title: 'Iris', caption: 'Window light'},\n  // …\n]\n\nexport default function Work() {\n  return (\n    <section className=\"h-svh\">\n      <FocusCarousel items={work} />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "{src: string; title?: string; caption?: string}[]",
+      "default": "11 Unsplash portraits",
+      "description": "The images, with the title and caption shown under the one in focus. The row loops."
+    },
+    {
+      "name": "cardWidth",
+      "type": "number",
+      "default": "320",
+      "description": "Width of the focused card in px; scaled down to fit smaller containers."
+    },
+    {
+      "name": "ratio",
+      "type": "number",
+      "default": "0.75",
+      "description": "Card width divided by height."
+    },
+    {
+      "name": "sideSize",
+      "type": "number",
+      "default": "0.52",
+      "description": "Size of the side cards relative to the focused one.",
+      "control": {"kind": "range", "value": 0.52, "min": 0.2, "max": 0.9, "step": 0.01}
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "default": "24",
+      "description": "Space between cards, in px.",
+      "control": {"kind": "range", "value": 24, "min": 0, "max": 80, "step": 1}
+    },
+    {
+      "name": "sideCount",
+      "type": "number",
+      "default": "5",
+      "description": "Visible cards on each side of the focus."
+    },
+    {
+      "name": "blurStep",
+      "type": "number",
+      "default": "2.5",
+      "description": "Blur added per step away from the focus, in px (up to 12).",
+      "control": {"kind": "range", "value": 2.5, "min": 0, "max": 6, "step": 0.5}
+    },
+    {
+      "name": "sideGrey",
+      "type": "number",
+      "default": "1",
+      "description": "Grayscale on the side cards, from 0 (full colour) to 1.",
+      "control": {"kind": "range", "value": 1, "min": 0, "max": 1, "step": 0.05}
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#ffffff'",
+      "description": "Background colour."
+    },
+    {
+      "name": "textColor",
+      "type": "string",
+      "default": "'#111111'",
+      "description": "Colour of the title, caption and marker."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height."
+    }
+  ]
+}

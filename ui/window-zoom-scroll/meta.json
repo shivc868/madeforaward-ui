@@ -1,0 +1,24 @@
+{
+  "slug": "window-zoom-scroll",
+  "name": "Scroll Window Zoom Reveal",
+  "description": "A GSAP ScrollTrigger image reveal for React: two offset windows cut into a wall show one photo; as you scroll they stretch level, merge into a single opening, and the wall zooms in until the photo fills the screen, then the heading turns in letter by letter and the text rises line by line. Clip-path polygons and transforms only.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/WindowZoomScroll.tsx",
+  "usage": "import WindowZoomScroll from '@/components/mfa/WindowZoomScroll'\n\nexport default function Architecture() {\n  return (\n    <WindowZoomScroll\n      image=\"/photos/terrace.jpg\"\n      heading=\"Terraces\"\n      text=\"Rooms that open onto shade, gardens and the sound of water.\"\n      wall=\"#f2efe8\"\n    />\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "image", "type": "string", "default": "an Unsplash house", "description": "The photo behind the windows (cover-fitted to the screen)."},
+    {"name": "heading", "type": "string", "default": "'Terraces'", "description": "The big heading that turns in once the photo is open."},
+    {"name": "text", "type": "string", "default": "one line", "description": "The paragraph that rises in under it."},
+    {"name": "wall", "type": "string", "default": "'#f2efe8'", "description": "Colour of the wall the windows are cut into.", "control": {"kind": "color", "value": "#f2efe8"}},
+    {"name": "zoom", "type": "number", "default": "1.84", "description": "How far the wall zooms in at the end (1.84 makes the window fill the screen).", "control": {"kind": "range", "value": 1.84, "min": 1.2, "max": 3, "step": 0.01}},
+    {"name": "length", "type": "number", "default": "3.5", "description": "Section height in screens.", "control": {"kind": "range", "value": 3.5, "min": 3, "max": 6, "step": 0.5}},
+    {"name": "scroller", "type": "HTMLElement | null", "default": "null (window)", "description": "The scrolling element, when it isn't the window."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the section (font for the heading, for one)."}
+  ]
+}

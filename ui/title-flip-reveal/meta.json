@@ -1,0 +1,28 @@
+{
+  "slug": "title-flip-reveal",
+  "name": "Masked Title Flip",
+  "description": "A GSAP text reveal for React: a big headline zooms up from 45% while its lines rise one by one out of masks, each sliding in from alternate sides on a sharp ease that settles slowly. Click it and the lines drop away one by one while a second headline rises in their place; click again to swap back. Plays each time it scrolls into view.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/TitleFlipReveal.tsx",
+  "usage": "import TitleFlipReveal from '@/components/mfa/TitleFlipReveal'\n\nexport default function Hero() {\n  return (\n    <section className=\"grid h-svh place-items-center\">\n      <TitleFlipReveal\n        as=\"h1\"\n        lines={['Make it', 'move with', 'purpose']}\n        altLines={['Then', 'make it', 'sing']}\n        className=\"text-center text-[11vw] leading-[0.9] font-semibold uppercase\"\n      />\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "lines", "type": "string[]", "default": "['Make it', 'move with', 'purpose']", "description": "The headline, one entry per line."},
+    {"name": "altLines", "type": "string[]", "default": "['Then', 'make it', 'sing']", "description": "The second headline it flips to."},
+    {"name": "flipOn", "type": "'click' | 'hover' | 'none'", "default": "'click'", "description": "What swaps the two headlines.", "control": {"kind": "select", "value": "click", "options": ["click", "hover", "none"]}},
+    {"name": "duration", "type": "number", "default": "1", "description": "Seconds for each line to rise in.", "control": {"kind": "range", "value": 1, "min": 0.3, "max": 2.5, "step": 0.05}},
+    {"name": "stagger", "type": "number", "default": "0.115", "description": "Seconds between lines.", "control": {"kind": "range", "value": 0.115, "min": 0, "max": 0.4, "step": 0.005}},
+    {"name": "delay", "type": "number", "default": "0.115", "description": "Seconds before the first line."},
+    {"name": "scaleFrom", "type": "number", "default": "0.45", "description": "The whole headline grows from this scale as the lines rise (1 = no zoom).", "control": {"kind": "range", "value": 0.45, "min": 0, "max": 1, "step": 0.01}},
+    {"name": "scaleDuration", "type": "number", "default": "0.8", "description": "Seconds for that zoom (expo in-out).", "control": {"kind": "range", "value": 0.8, "min": 0.5, "max": 4, "step": 0.1}},
+    {"name": "trigger", "type": "'view' | 'mount'", "default": "'view'", "description": "'view' plays each time it scrolls into view; 'mount' once, at once."},
+    {"name": "scroller", "type": "Element | string", "default": "window", "description": "The scrolling element, when it isn't the window."},
+    {"name": "as", "type": "'h1' | 'h2' | 'div'", "default": "'h2'", "description": "The element to render."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the headline: font, size, line height, alignment."}
+  ]
+}

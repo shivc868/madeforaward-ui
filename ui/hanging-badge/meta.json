@@ -1,0 +1,90 @@
+{
+  "slug": "hanging-badge",
+  "name": "3D Lanyard Badge",
+  "description": "An interactive 3D lanyard badge for React and three.js: an event pass on a strap that you can grab, drag, throw and spin, with verlet rope physics and clearcoat lighting. Both faces are drawn from props, so it shows at once with nothing to load.",
+  "category": "interactions",
+  "version": "2.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/HangingBadge.tsx",
+  "usage": "import HangingBadge from '@/components/mfa/HangingBadge'\n\nexport default function Ticket() {\n  return (\n    <section className=\"h-svh bg-neutral-950\">\n      <HangingBadge name=\"Ava Moreno\" role=\"Speaker\" code=\"DW-0142\" strapText=\"DESIGN WEEK\" />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "name",
+      "type": "string",
+      "default": "'Your Name'",
+      "description": "Name on the front."
+    },
+    {
+      "name": "role",
+      "type": "string",
+      "default": "'Creative Developer'",
+      "description": "Line under the name."
+    },
+    {
+      "name": "code",
+      "type": "string",
+      "default": "'MFA-0001'",
+      "description": "Badge number, printed on the front and used to draw the pattern on the back."
+    },
+    {
+      "name": "label",
+      "type": "string",
+      "default": "'ALL ACCESS · 2026'",
+      "description": "Small label at the top of the front."
+    },
+    {
+      "name": "accent",
+      "type": "string",
+      "default": "'#ff6a2b'",
+      "description": "Accent colour on the front (glow, disc, code). Hex.",
+      "control": {
+        "kind": "color",
+        "value": "#ff6a2b"
+      }
+    },
+    {
+      "name": "cardColor",
+      "type": "string",
+      "default": "'#141318'",
+      "description": "Front and edge colour; also the ink on the back."
+    },
+    {
+      "name": "backColor",
+      "type": "string",
+      "default": "'#ff6a2b'",
+      "description": "Back colour.",
+      "control": {
+        "kind": "color",
+        "value": "#ff6a2b"
+      }
+    },
+    {
+      "name": "strapColor",
+      "type": "string",
+      "default": "'#ff6a2b'",
+      "description": "Strap colour.",
+      "control": {
+        "kind": "color",
+        "value": "#ff6a2b"
+      }
+    },
+    {
+      "name": "strapText",
+      "type": "string",
+      "default": "'MADEFORAWARD'",
+      "description": "Text repeated along the strap."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height; the strap hangs from the top."
+    }
+  ],
+  "badge": "trending"
+}

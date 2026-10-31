@@ -1,0 +1,145 @@
+{
+  "slug": "arc-poke-text",
+  "name": "Arc Poke Text",
+  "description": "A poster headline for React set on a gentle arc, letter by letter: it rises out of per-letter clips in random order when it comes into view, then letters near the cursor lift, swell and lean away, springing back with an elastic wobble. GSAP + ScrollTrigger.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/ArcPokeText.tsx",
+  "usage": "import ArcPokeText from '@/components/mfa/ArcPokeText'\n\nexport default function Hero() {\n  return (\n    <section className=\"grid h-svh place-items-center bg-[#ffd23f]\">\n      <ArcPokeText lines={['HOLD', 'ON TIGHT']} className=\"text-[19vw] font-extrabold text-[#1b1464]\" />\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "lines",
+      "type": "string[]",
+      "default": "['HOLD', 'ON TIGHT']",
+      "description": "The headline, one string per line. Each line is set on its own arc."
+    },
+    {
+      "name": "arcDrop",
+      "type": "number",
+      "default": "0.059",
+      "description": "How far the middle of each line dips, in em.",
+      "control": {
+        "kind": "range",
+        "value": 0.059,
+        "min": 0,
+        "max": 0.25,
+        "step": 0.002
+      }
+    },
+    {
+      "name": "arcTilt",
+      "type": "number",
+      "default": "7",
+      "description": "How far the outer letters lean out, in degrees.",
+      "control": {
+        "kind": "range",
+        "value": 7,
+        "min": 0,
+        "max": 20,
+        "step": 0.5
+      }
+    },
+    {
+      "name": "tweaks",
+      "type": "Record<string, {dx?: number; dy?: number; dr?: number}>",
+      "default": "a few nudges for the default text",
+      "description": "Hand nudges per letter keyed 'line:index' (0-based), in em and degrees, on top of the arc. Pass {} for a pure arc."
+    },
+    {
+      "name": "poke",
+      "type": "boolean",
+      "default": "true",
+      "description": "Letters near the pointer lift, swell and lean away (tap on touch).",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "0.6",
+      "description": "Seconds each letter takes to rise in.",
+      "control": {
+        "kind": "range",
+        "value": 0.6,
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "stagger",
+      "type": "number",
+      "default": "0.025",
+      "description": "Seconds between letters (random order).",
+      "control": {
+        "kind": "range",
+        "value": 0.025,
+        "min": 0,
+        "max": 0.12,
+        "step": 0.005
+      }
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": "0.3",
+      "description": "Seconds before the entrance starts."
+    },
+    {
+      "name": "trigger",
+      "type": "'view' | 'mount'",
+      "default": "'view'",
+      "description": "'view' plays when it scrolls into view (right away if it's on screen at load); 'mount' plays at once."
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 75%'",
+      "description": "ScrollTrigger start for trigger 'view'."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, when it isn't the window."
+    },
+    {
+      "name": "tracking",
+      "type": "number",
+      "default": "-0.015",
+      "description": "Extra space between letters in em; negative pulls them tighter.",
+      "control": {
+        "kind": "range",
+        "value": -0.015,
+        "min": -0.12,
+        "max": 0.08,
+        "step": 0.005
+      }
+    },
+    {
+      "name": "lineHeight",
+      "type": "number",
+      "default": "0.73",
+      "description": "Line height. Keep it tight so the arcs nest; tall faces need a little more."
+    },
+    {
+      "name": "as",
+      "type": "'h1' | 'h2' | 'div'",
+      "default": "'h1'",
+      "description": "Element to render."
+    },
+    {
+      "name": "className / style",
+      "type": "string / CSSProperties",
+      "default": "\u2014",
+      "description": "Font, size and colour. Built for a heavy condensed display face at poster size."
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "slug": "wipe-reveal-text",
+  "name": "Wipe Reveal Text",
+  "description": "A GSAP text reveal for React: each line is uncovered by a solid bar that sweeps across it, its tail chasing after and the words emerging from behind, line after line on a slow-fast-slow custom ease. Lines are measured after layout, so it works at any width.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/WipeRevealText.tsx",
+  "usage": "import WipeRevealText from '@/components/mfa/WipeRevealText'\n\nexport default function Statement() {\n  return (\n    <section className=\"bg-[#121317] px-6 py-32 text-[#f2f1ee]\">\n      <WipeRevealText indent=\"30%\" className=\"text-[clamp(32px,3.6vw,64px)] leading-[1.15] font-bold tracking-[-0.06em]\">\n        We back the people who rebuild how homes are insured, owned and cared for.\n      </WipeRevealText>\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "a studio paragraph",
+      "description": "The text. Lines are found after layout, so it reflows at any width."
+    },
+    {
+      "name": "indent",
+      "type": "string",
+      "default": "'0'",
+      "description": "First-line indent, any CSS length ('30%', '4em')."
+    },
+    {
+      "name": "barColor",
+      "type": "string",
+      "default": "'currentColor'",
+      "description": "Colour of the sweeping bar; the text colour by default."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": "0.5",
+      "description": "Seconds for the bar to cross a line (and for its tail to follow).",
+      "control": {
+        "kind": "range",
+        "value": 0.5,
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "reveal",
+      "type": "number",
+      "default": "0.44",
+      "description": "Seconds after the bar starts before its tail sets off and the words appear.",
+      "control": {
+        "kind": "range",
+        "value": 0.44,
+        "min": 0.1,
+        "max": 1.2,
+        "step": 0.02
+      }
+    },
+    {
+      "name": "stagger",
+      "type": "number",
+      "default": "0.1",
+      "description": "Seconds between lines.",
+      "control": {
+        "kind": "range",
+        "value": 0.1,
+        "min": 0,
+        "max": 0.4,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": "0.3",
+      "description": "Seconds before the first line."
+    },
+    {
+      "name": "trigger",
+      "type": "'view' | 'mount'",
+      "default": "'view'",
+      "description": "'view' plays when it scrolls to start (once); 'mount' plays at once."
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 65%'",
+      "description": "ScrollTrigger start for trigger 'view'."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, when it isn't the window."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h1' | 'h2' | 'div'",
+      "default": "'p'",
+      "description": "Element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Font, size, colour. Made for a big bold statement paragraph."
+    }
+  ]
+}

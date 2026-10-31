@@ -1,0 +1,107 @@
+{
+  "slug": "isometric-key-grid",
+  "name": "Isometric Key Grid",
+  "description": "An interactive 3D background for React and three.js: an isometric field of soft keys that rise in a smooth dome under the cursor, light up in a flowing gradient and glow onto the floor, each with a small line icon. Two draw calls; it rests when idle.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/IsometricKeyGrid.tsx",
+  "usage": "import IsometricKeyGrid from '@/components/mfa/IsometricKeyGrid'\n\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <IsometricKeyGrid colors={['#ff6a2b', '#ff3d81', '#7b4bff', '#ffc49a']} />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "colors",
+      "type": "[string, string, string, string]",
+      "default": "['#ff6a2b', '#ff3d81', '#7b4bff', '#ffc49a']",
+      "description": "Four colours for the gradient that flows over raised keys and glows on the floor."
+    },
+    {
+      "name": "keyColor",
+      "type": "string",
+      "default": "'#16151a'",
+      "description": "Colour of the keys at rest."
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#08070a'",
+      "description": "Floor and background colour."
+    },
+    {
+      "name": "lift",
+      "type": "number",
+      "default": "1.6",
+      "description": "How high the key under the pointer rises, in key heights.",
+      "control": {
+        "kind": "range",
+        "value": 1.6,
+        "min": 0.5,
+        "max": 6,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "3.4",
+      "description": "Radius of the raised area, in key spacings.",
+      "control": {
+        "kind": "range",
+        "value": 3.4,
+        "min": 1,
+        "max": 6,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "iconSize",
+      "type": "number",
+      "default": "0.52",
+      "description": "Icon size as a share of a key.",
+      "control": {
+        "kind": "range",
+        "value": 0.52,
+        "min": 0.15,
+        "max": 0.7,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "default": "0.06",
+      "description": "Space between keys, as a share of a key's width. 0 packs them edge to edge.",
+      "control": {
+        "kind": "range",
+        "value": 0.06,
+        "min": 0,
+        "max": 0.5,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "keySize",
+      "type": "number",
+      "default": "1.5",
+      "description": "Size of the keys on screen. 1 is the default zoom; higher values make every key (and its icon) bigger, so fewer fit.",
+      "control": {
+        "kind": "range",
+        "value": 1.5,
+        "min": 1,
+        "max": 2.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height."
+    }
+  ],
+  "badge": "trending"
+}

@@ -1,0 +1,58 @@
+{
+  "slug": "paper-flow-hero",
+  "name": "Carousel Wall Scroll",
+  "description": "A three.js scroll scene for React: a tilted carousel of image fins spins up as you scroll, then card by card the images slide off and fly onto a tilted wall while the camera zooms in, and the wall settles into a panel beside your content. Pinned and scrubbed by scroll, one instanced draw call.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/PaperFlowHero.tsx",
+  "usage": "import PaperFlowHero from '@/components/mfa/PaperFlowHero'\n\n// About 3 screens tall: the stage stays pinned while the scene scrubs with scroll.\nexport default function Work() {\n  return (\n    <PaperFlowHero\n      images={['/work/01.jpg', '/work/02.jpg', '/work/03.jpg' /* … */]}\n      aside={<h2 className=\"text-6xl\">Your next section</h2>}\n    />\n  )\n}",
+  "props": [
+    {
+      "name": "images",
+      "type": "string[]",
+      "default": "12 Unsplash photos",
+      "description": "Image URLs (remote hosts need CORS). They repeat around the carousel and across the wall."
+    },
+    {
+      "name": "aspect",
+      "type": "number",
+      "default": "720 / 1019",
+      "description": "Card width / height (images are cover-cropped to it)."
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#f2f2f0'",
+      "description": "Background colour of the scene.",
+      "control": {
+        "kind": "color",
+        "value": "#f2f2f0"
+      }
+    },
+    {
+      "name": "aside",
+      "type": "ReactNode",
+      "default": "heading, two lines and button",
+      "description": "Content that arrives beside the wall at the end."
+    },
+    {
+      "name": "scroller",
+      "type": "HTMLElement | null",
+      "default": "null (window)",
+      "description": "The scrolling element, when it isn't the window."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height (h-svh for a hero)."
+    }
+  ],
+  "badge": "new"
+}

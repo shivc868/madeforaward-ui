@@ -1,0 +1,33 @@
+{
+  "slug": "wire-sphere-background",
+  "name": "Wireframe Sphere Background",
+  "description": "A three.js wireframe sphere background for React: a dense mesh pushed in and out by flowing Perlin noise, lit as a rainbow heat map where it bulges, seen through a pincushion lens that folds it into rings and petals with a moiré shimmer. Drag to turn it; every setting is live; pauses off screen.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/WireSphereBackground.tsx",
+  "usage": "import WireSphereBackground from '@/components/mfa/WireSphereBackground'\n\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <WireSphereBackground noiseSpeed={0.32} distortion={-1} zoom={0.68} />\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "size", "type": "number", "default": "2.7", "description": "Sphere radius.", "control": {"kind": "range", "value": 2.7, "min": 0.5, "max": 5, "step": 0.1}},
+    {"name": "detail", "type": "number", "default": "350", "description": "Wireframe segments around and down the sphere (rebuilds the mesh).", "control": {"kind": "range", "value": 350, "min": 32, "max": 600, "step": 2}},
+    {"name": "noiseScale", "type": "number", "default": "2.6", "description": "How fine the noise that shapes the surface is.", "control": {"kind": "range", "value": 2.6, "min": 0, "max": 5, "step": 0.1}},
+    {"name": "noiseIntensity", "type": "number", "default": "0.4", "description": "How far the noise pushes the surface in and out.", "control": {"kind": "range", "value": 0.4, "min": 0, "max": 1, "step": 0.05}},
+    {"name": "noiseSpeed", "type": "number", "default": "0.32", "description": "How fast the noise flows.", "control": {"kind": "range", "value": 0.32, "min": 0, "max": 1, "step": 0.01}},
+    {"name": "colorIntensity", "type": "number", "default": "5", "description": "How strongly the bulges light up in the heat-map colours.", "control": {"kind": "range", "value": 5, "min": 0.1, "max": 10, "step": 0.1}},
+    {"name": "baseColor", "type": "string", "default": "'#000000'", "description": "Colour the hollows fade to, and the solid core.", "control": {"kind": "color", "value": "#000000"}},
+    {"name": "solidCore", "type": "boolean", "default": "true", "description": "A solid core that hides the far side of the wireframe.", "control": {"kind": "switch", "value": true}},
+    {"name": "distortion", "type": "number", "default": "-1", "description": "Lens: negative folds the picture inward (pincushion), positive bulges it, 0 is off.", "control": {"kind": "range", "value": -1, "min": -1, "max": 1, "step": 0.01}},
+    {"name": "zoom", "type": "number", "default": "0.68", "description": "Lens zoom (lower shows more).", "control": {"kind": "range", "value": 0.68, "min": 0.3, "max": 1.5, "step": 0.01}},
+    {"name": "aberration", "type": "number", "default": "0", "description": "Splits the lens into red, green and blue fringes.", "control": {"kind": "range", "value": 0, "min": 0, "max": 0.1, "step": 0.001}},
+    {"name": "draggable", "type": "boolean", "default": "true", "description": "Drag to turn the sphere.", "control": {"kind": "switch", "value": true}},
+    {"name": "background", "type": "string", "default": "'#000000'", "description": "Background behind the sphere.", "control": {"kind": "color", "value": "#000000"}},
+    {"name": "children", "type": "ReactNode", "default": "—", "description": "Content laid over the background."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the wrapper. It fills its parent, so give the parent a height."}
+  ]
+}

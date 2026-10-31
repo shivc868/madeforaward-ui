@@ -1,0 +1,33 @@
+{
+  "slug": "flow-distort-text",
+  "name": "Liquid Distortion Text Hover",
+  "description": "A WebGL text hover for React: the cursor smears a big word like wet paint, dragging the letters along a fading flowmap and splitting them into red, green and blue fringes that run along and across the stroke, with motion blur on fast moves. three.js, the word drawn to a canvas texture, live settings, paused off screen.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/FlowDistortText.tsx",
+  "usage": "import FlowDistortText from '@/components/mfa/FlowDistortText'\n\n// Load the font on the page first (here Syne 800 from Google Fonts).\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <FlowDistortText text=\"AFTERGLOW\" fontFamily=\"Syne, sans-serif\" fontWeight={800} />\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "text", "type": "string", "default": "'AFTERGLOW'", "description": "The word (fitted across the width)."},
+    {"name": "fontFamily", "type": "string", "default": "'Syne, sans-serif'", "description": "CSS font family; load the font on the page."},
+    {"name": "fontWeight", "type": "number | string", "default": "800", "description": "Font weight."},
+    {"name": "color", "type": "string", "default": "'#ffe9cf'", "description": "Colour of the word.", "control": {"kind": "color", "value": "#ffe9cf"}},
+    {"name": "background", "type": "string", "default": "'#120d22'", "description": "Background colour.", "control": {"kind": "color", "value": "#120d22"}},
+    {"name": "grain", "type": "boolean", "default": "true", "description": "A fine film grain over the background.", "control": {"kind": "switch", "value": true}},
+    {"name": "distortion", "type": "number", "default": "0.08", "description": "How far the flow drags the letters.", "control": {"kind": "range", "value": 0.08, "min": 0, "max": 0.2, "step": 0.001}},
+    {"name": "aberration", "type": "number", "default": "0.004", "description": "How far apart red, green and blue split.", "control": {"kind": "range", "value": 0.004, "min": 0, "max": 0.03, "step": 0.0005}},
+    {"name": "spread", "type": "number", "default": "1", "description": "Multiplies the colour split.", "control": {"kind": "range", "value": 1, "min": 1, "max": 8, "step": 0.1}},
+    {"name": "falloff", "type": "number", "default": "0.18", "description": "Size of the cursor's brush.", "control": {"kind": "range", "value": 0.18, "min": 0.05, "max": 0.6, "step": 0.01}},
+    {"name": "dissipation", "type": "number", "default": "0.965", "description": "How long the smear lingers (closer to 1 = longer).", "control": {"kind": "range", "value": 0.965, "min": 0.8, "max": 0.995, "step": 0.001}},
+    {"name": "motionBlur", "type": "number", "default": "0.35", "description": "How much the last frame smears in on fast moves.", "control": {"kind": "range", "value": 0.35, "min": 0, "max": 1, "step": 0.01}},
+    {"name": "velocityScale", "type": "number", "default": "0.6", "description": "How hard the cursor's speed pushes.", "control": {"kind": "range", "value": 0.6, "min": 0.1, "max": 3, "step": 0.1}},
+    {"name": "padding", "type": "number", "default": "40", "description": "Space either side of the word, in CSS px."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the wrapper. It fills its parent, so give the parent a height."}
+  ]
+}

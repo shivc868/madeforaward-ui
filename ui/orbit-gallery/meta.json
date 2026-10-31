@@ -1,0 +1,70 @@
+{
+  "slug": "orbit-gallery",
+  "name": "Orbit Gallery",
+  "description": "A circular image gallery for React: photos ride a slowly turning ring, lift out on hover, spin with the wheel or a drag (with momentum), and open into the middle on click with a caption. Springs only, no dependencies.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/OrbitGallery.tsx",
+  "usage": "import OrbitGallery from '@/components/mfa/OrbitGallery'\n\nconst work = [\n  {src: '/work/ember.jpg', title: 'Ember', caption: 'Last light over the ridge'},\n  {src: '/work/noor.jpg', title: 'Noor', caption: 'Studio portrait'},\n  // …\n]\n\nexport default function Work() {\n  return (\n    <section className=\"h-svh bg-black\">\n      <OrbitGallery items={work} />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "{src: string; title?: string; caption?: string}[]",
+      "default": "16 Unsplash photos",
+      "description": "The images. Title and caption show under an opened image."
+    },
+    {
+      "name": "ringSize",
+      "type": "number",
+      "default": "0.86",
+      "description": "Ring diameter as a share of the component's shorter side.",
+      "control": {"kind": "range", "value": 0.86, "min": 0.4, "max": 1, "step": 0.02}
+    },
+    {
+      "name": "cardSize",
+      "type": "number",
+      "default": "0.11",
+      "description": "Card width as a share of the shorter side.",
+      "control": {"kind": "range", "value": 0.11, "min": 0.05, "max": 0.2, "step": 0.01}
+    },
+    {
+      "name": "aspect",
+      "type": "number",
+      "default": "1.25",
+      "description": "Card height divided by width."
+    },
+    {
+      "name": "drift",
+      "type": "number",
+      "default": "5",
+      "description": "Auto-rotation in degrees per second. 0 holds the ring still. Pauses on hover.",
+      "control": {"kind": "range", "value": 5, "min": 0, "max": 30, "step": 1}
+    },
+    {
+      "name": "wheelSpin",
+      "type": "boolean",
+      "default": "true",
+      "description": "The mouse wheel or trackpad spins the ring (and the page doesn't scroll while over it).",
+      "control": {"kind": "switch", "value": true}
+    },
+    {
+      "name": "openSize",
+      "type": "number",
+      "default": "0.42",
+      "description": "Width of an opened image as a share of the shorter side."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "6",
+      "description": "Corner radius of the cards, in px; stays the same on screen as they scale."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height."
+    }
+  ]
+}

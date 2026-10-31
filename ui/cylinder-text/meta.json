@@ -1,0 +1,53 @@
+{
+  "slug": "cylinder-text",
+  "name": "3D Cylinder Scroll Text",
+  "description": "A GSAP ScrollTrigger 3D text effect: lines sit around a drum that the scroll turns, rising from below, facing you in the middle and tipping away over the top. Pure CSS 3D, no WebGL.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/CylinderText.tsx",
+  "usage": "import CylinderText from '@/components/mfa/CylinderText'\n\nexport default function Statement() {\n  return (\n    <CylinderText\n      className=\"text-7xl font-semibold leading-none\"\n      lines={['Purpose is', 'when work', 'feels like', 'playing']}\n    />\n  )\n}",
+  "props": [
+    {
+      "name": "lines",
+      "type": "string[]",
+      "default": "sample lines",
+      "description": "One entry per line on the drum. Keep them short; lines don't wrap."
+    },
+    {
+      "name": "step",
+      "type": "number",
+      "default": "18",
+      "description": "Degrees between neighbouring lines. Smaller = a bigger, flatter drum.",
+      "control": {"kind": "range", "value": 18, "min": 10, "max": 30, "step": 1}
+    },
+    {
+      "name": "distance",
+      "type": "number",
+      "default": "110",
+      "description": "Pixels of scroll per line.",
+      "control": {"kind": "range", "value": 110, "min": 40, "max": 250, "step": 10}
+    },
+    {
+      "name": "pin",
+      "type": "boolean",
+      "default": "true",
+      "description": "Hold the drum in the middle of the viewport while it turns."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, if the drum sits inside its own scroll container."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the block: font, size, colour. The height is set from the line height."
+    }
+  ]
+}

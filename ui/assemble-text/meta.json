@@ -1,0 +1,58 @@
+{
+  "slug": "assemble-text",
+  "name": "Assemble Text",
+  "description": "A GSAP text animation where characters arrive one by one in random order and the paragraph reflows into place as it fills in. No layout shift: the block holds its final size from the start.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/AssembleText.tsx",
+  "usage": "import AssembleText from '@/components/mfa/AssembleText'\n\nexport default function About() {\n  return (\n    <AssembleText\n      className=\"max-w-3xl text-4xl leading-tight font-medium\"\n      text=\"Northline is an independent design studio known for quiet interfaces and sharp typography.\"\n    />\n  )\n}",
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "default": "sample sentence",
+      "description": "The text to assemble. Plain text; line breaks come from the container's width."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "2.4",
+      "description": "Seconds until every character is in.",
+      "control": {"kind": "range", "value": 2.4, "min": 0.5, "max": 6, "step": 0.1}
+    },
+    {
+      "name": "trigger",
+      "type": "'view' | 'mount'",
+      "default": "'view'",
+      "description": "'view' starts when the text scrolls into view (once); 'mount' starts right away."
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 85%'",
+      "description": "When 'view' starts, as a ScrollTrigger start."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, if the text sits inside its own scroll container."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h1' | 'h2' | 'h3' | 'div'",
+      "default": "'p'",
+      "description": "The element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the text element: font, size, colour, width."
+    }
+  ]
+}

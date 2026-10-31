@@ -1,0 +1,86 @@
+{
+  "slug": "blur-rise-text",
+  "name": "Blur Rise Text",
+  "description": "A GSAP text animation for React: characters rise out of a heavy blur and sharpen into place, staggered from the edges inward on a long expo ease. Plays once when it scrolls into view, or right away when it's already on screen (a hero or header). SplitText + ScrollTrigger.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/BlurRiseText.tsx",
+  "usage": "import BlurRiseText from '@/components/mfa/BlurRiseText'\n\nexport default function Hero() {\n  return (\n    <section className=\"grid h-svh place-items-center\">\n      <BlurRiseText as=\"h1\" className=\"text-[12vw] leading-none font-black uppercase\">\n        Afterglow\n      </BlurRiseText>\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "'AFTERGLOW'",
+      "description": "The text. Works for a single word or a full heading; words never break mid-word."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "1.5",
+      "description": "Seconds each character takes to settle.",
+      "control": {"kind": "range", "value": 1.5, "min": 0.4, "max": 3, "step": 0.1}
+    },
+    {
+      "name": "stagger",
+      "type": "number",
+      "default": "0.2",
+      "description": "Seconds spread across all characters (in total, not per character).",
+      "control": {"kind": "range", "value": 0.2, "min": 0, "max": 1.5, "step": 0.05}
+    },
+    {
+      "name": "from",
+      "type": "'edges' | 'center' | 'start' | 'end' | 'random'",
+      "default": "'edges'",
+      "description": "Which characters go first.",
+      "control": {"kind": "select", "value": "edges", "options": ["edges", "center", "start", "end", "random"]}
+    },
+    {
+      "name": "distance",
+      "type": "number",
+      "default": "1.5",
+      "description": "How far below each character starts, in em.",
+      "control": {"kind": "range", "value": 1.5, "min": 0, "max": 3, "step": 0.05}
+    },
+    {
+      "name": "blur",
+      "type": "number",
+      "default": "0.25",
+      "description": "Starting blur, in em.",
+      "control": {"kind": "range", "value": 0.25, "min": 0, "max": 0.6, "step": 0.01}
+    },
+    {
+      "name": "trigger",
+      "type": "'view' | 'mount'",
+      "default": "'view'",
+      "description": "'view' plays once when the text reaches start, or immediately if it's already on screen at load; 'mount' plays as soon as it renders."
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 90%'",
+      "description": "ScrollTrigger start for trigger 'view'."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, when it isn't the window."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h1' | 'h2' | 'h3' | 'div'",
+      "default": "'h2'",
+      "description": "Element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the text (font, size, colour)."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "focus-lens-image",
+  "name": "Focus Lens Image",
+  "description": "A blurred hero image with a sharp lens that follows the cursor. Pass any image as src: outside the lens it stays soft, inside it comes into focus, perfectly aligned. Plain React, no dependencies.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/FocusLensImage.tsx",
+  "usage": "import FocusLensImage from '@/components/mfa/FocusLensImage'\n\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <FocusLensImage src=\"/hero.jpg\" alt=\"Portrait of Kaely\" />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "default": "Unsplash portrait",
+      "description": "The image: any URL or path. It covers the component (object-fit: cover)."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "default": "''",
+      "description": "Alt text for the image."
+    },
+    {
+      "name": "blur",
+      "type": "number",
+      "default": "12",
+      "description": "Blur outside the lens, in px.",
+      "control": {"kind": "range", "value": 12, "min": 0, "max": 40, "step": 1}
+    },
+    {
+      "name": "lensWidth",
+      "type": "number",
+      "default": "288",
+      "description": "Lens width in px.",
+      "control": {"kind": "range", "value": 288, "min": 100, "max": 600, "step": 4}
+    },
+    {
+      "name": "lensHeight",
+      "type": "number",
+      "default": "360",
+      "description": "Lens height in px.",
+      "control": {"kind": "range", "value": 360, "min": 100, "max": 600, "step": 4}
+    },
+    {
+      "name": "smoothing",
+      "type": "number",
+      "default": "0.85",
+      "description": "How far the lens trails the pointer, from 0 (glued to it) to 0.97 (slow and floaty).",
+      "control": {"kind": "range", "value": 0.85, "min": 0, "max": 0.97, "step": 0.01}
+    },
+    {
+      "name": "frameColor",
+      "type": "string",
+      "default": "'rgba(255,255,255,0.7)'",
+      "description": "Colour of the lens frame and crosshair. 'transparent' hides the frame."
+    },
+    {
+      "name": "crosshair",
+      "type": "boolean",
+      "default": "true",
+      "description": "A small + in the middle of the lens.",
+      "control": {"kind": "switch", "value": true}
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height."
+    }
+  ]
+}

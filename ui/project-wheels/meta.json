@@ -1,0 +1,61 @@
+{
+  "slug": "project-wheels",
+  "name": "Project Wheels",
+  "description": "A three.js portfolio hero for React: two wheels of work turn against each other, project cards on one and their marks on the other; the one at the nip grows into focus while its title rolls in like an odometer. Scroll, drag, flick or arrow keys, with a speed governor and a critically damped snap; cards bend like cloth with speed.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/ProjectWheels.tsx",
+  "usage": "import ProjectWheels from '@/components/mfa/ProjectWheels'\n\nexport default function Work() {\n  return (\n    <section className=\"h-svh\">\n      <ProjectWheels\n        projects={[\n          {title: 'Lumen', client: 'w/Northline', year: '2026', image: '/work/lumen.jpg', mark: 'L', color: '#FF8A5C', href: '/work/lumen'},\n          // …\n        ]}\n      />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "projects",
+      "type": "{title: string; client: string; year: string; image: string; mark: string; color: string; href?: string}[]",
+      "default": "12 sample projects",
+      "description": "The work. image fills the 16:9 card (remote hosts need CORS); mark and color draw the plate on the second wheel."
+    },
+    {
+      "name": "bend",
+      "type": "number",
+      "default": "1",
+      "description": "How much the cards bend, shear and trail with the wheel's speed. 0 keeps them flat.",
+      "control": {
+        "kind": "range",
+        "value": 1,
+        "min": 0,
+        "max": 3,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "captureWheel",
+      "type": "boolean",
+      "default": "true",
+      "description": "Turn the wheels with the mouse wheel / trackpad while the pointer is over the component (the page doesn't scroll then). Drag and arrow keys always work."
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#161616'",
+      "description": "Background colour."
+    },
+    {
+      "name": "textColor",
+      "type": "string",
+      "default": "'#f2f1ee'",
+      "description": "Text colour."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height (h-svh for a hero)."
+    }
+  ],
+  "badge": "new"
+}

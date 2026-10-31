@@ -1,0 +1,142 @@
+{
+  "slug": "liquid-reveal-cursor",
+  "name": "Liquid Reveal Cursor",
+  "description": "A liquid cursor for React that opens a window onto a dark version of the page beneath. Its trail melts together like ink, swirls and breaks into drops, gathers back when you stop, wraps links and buttons, and splashes on click. One component, no dependencies; works on any page.",
+  "category": "interactions",
+  "version": "1.1.0",
+  "dependencies": {},
+  "entry": "components/mfa/LiquidRevealCursor.tsx",
+  "usage": "import LiquidRevealCursor from '@/components/mfa/LiquidRevealCursor'\n\n// Once, e.g. in your root layout. It follows the pointer over the whole page,\n// never blocks clicks, and turns itself off on touch screens.\nexport default function Layout({children}: {children: React.ReactNode}) {\n  return (\n    <>\n      {children}\n      <LiquidRevealCursor />\n      {/* or reveal your own layer:\n      <LiquidRevealCursor><div className=\"h-full bg-linear-to-br from-orange-400 to-violet-600\" /></LiquidRevealCursor> */}\n    </>\n  )\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "—",
+      "description": "What the blob reveals: a gradient, an image, a second version of your design. Without it the blob shows the page itself through filter and tint."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "default": "80",
+      "description": "Blob radius at rest, in px.",
+      "control": {
+        "kind": "range",
+        "value": 80,
+        "min": 30,
+        "max": 160,
+        "step": 5
+      }
+    },
+    {
+      "name": "trail",
+      "type": "number",
+      "default": "0.7",
+      "description": "How long the trail lives, in seconds.",
+      "control": {
+        "kind": "range",
+        "value": 0.7,
+        "min": 0.2,
+        "max": 1.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "smear",
+      "type": "number",
+      "default": "0.4",
+      "description": "How far the trail keeps sliding after the pointer, from 0 to 1.",
+      "control": {
+        "kind": "range",
+        "value": 0.4,
+        "min": 0,
+        "max": 1,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "flow",
+      "type": "number",
+      "default": "0.5",
+      "description": "How much the trail swirls, swells and breaks into drops, from 0 to 1.",
+      "control": {
+        "kind": "range",
+        "value": 0.5,
+        "min": 0,
+        "max": 1,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "0.6",
+      "description": "How much speed swells and stretches the blob, from 0 to 1.",
+      "control": {
+        "kind": "range",
+        "value": 0.6,
+        "min": 0,
+        "max": 1,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "delay",
+      "type": "number",
+      "default": "0.15",
+      "description": "Seconds the pointer must rest before the trail gathers back into the head."
+    },
+    {
+      "name": "splash",
+      "type": "boolean",
+      "default": "true",
+      "description": "Press for a splash of drops; hold to open the window wider.",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "lens",
+      "type": "boolean",
+      "default": "true",
+      "description": "Over links, buttons and anything with data-cursor-lens, the blob melts into a rounded box around them."
+    },
+    {
+      "name": "filter",
+      "type": "string",
+      "default": "'invert(1) hue-rotate(180deg)'",
+      "description": "CSS filter for the page seen inside the blob. The default turns a light page dark while keeping its hues. Try 'grayscale(1)' or 'blur(6px)'."
+    },
+    {
+      "name": "tint",
+      "type": "string",
+      "default": "'#2a0f3f'",
+      "description": "Colour laid over the revealed page with a lighten blend, so dark areas take this colour. 'transparent' for none."
+    },
+    {
+      "name": "grain",
+      "type": "boolean",
+      "default": "true",
+      "description": "A fine film grain inside the blob."
+    },
+    {
+      "name": "hideCursor",
+      "type": "boolean",
+      "default": "false",
+      "description": "Hide the native cursor so only the blob shows."
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "default": "true",
+      "description": "Follow the pointer over the whole page. false keeps it inside its parent (give the parent position: relative). In that case avoid overflow: hidden together with border-radius on an ancestor: Chrome then stops clipping the backdrop and the blob shows as a box."
+    },
+    {
+      "name": "zIndex",
+      "type": "number",
+      "default": "9999",
+      "description": "Stacking order of the cursor layers."
+    }
+  ],
+  "badge": "trending"
+}

@@ -1,0 +1,25 @@
+{
+  "slug": "dot-swing-button",
+  "name": "Dot Swing Button",
+  "description": "A CSS button hover for React: the dot rocks away round a pivot while three coloured dots swing in one after another like a little colour wheel, and the label tips back and lifts out as a copy swings up into its place, all on an elastic ease. Dashed outline, press squash, keyboard focus plays it too. No JavaScript.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/DotSwingButton.tsx",
+  "usage": "import DotSwingButton from '@/components/mfa/DotSwingButton'\n\nexport default function Cta() {\n  return (\n    <DotSwingButton href=\"/tour\" dots={['#2d3cff', '#2fd9a8', '#ff6fb5', '#2d3cff']}>\n      Book a studio tour\n    </DotSwingButton>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "children", "type": "string", "default": "'Book a studio tour'", "description": "The label."},
+    {"name": "href", "type": "string", "default": "—", "description": "Renders a link instead of a button."},
+    {"name": "onClick", "type": "() => void", "default": "—", "description": "Click handler (button mode)."},
+    {"name": "background", "type": "string", "default": "'#f1f4ff'", "description": "Button colour.", "control": {"kind": "color", "value": "#f1f4ff"}},
+    {"name": "ink", "type": "string", "default": "'#11143a'", "description": "Text colour.", "control": {"kind": "color", "value": "#11143a"}},
+    {"name": "hoverInk", "type": "string", "default": "'#2d3cff'", "description": "Colour of the label that swings in."},
+    {"name": "dots", "type": "[string, string, string, string]", "default": "blue, mint, pink, blue", "description": "The dot at rest, then the three that swing in (the last one lands on top)."},
+    {"name": "dot", "type": "string", "default": "'#2d3cff'", "description": "Demo control: the dot at rest.", "control": {"kind": "color", "value": "#2d3cff"}},
+    {"name": "third", "type": "string", "default": "'#2fd9a8'", "description": "Demo control: first colour to swing in.", "control": {"kind": "color", "value": "#2fd9a8"}},
+    {"name": "second", "type": "string", "default": "'#ff6fb5'", "description": "Demo control: second colour to swing in.", "control": {"kind": "color", "value": "#ff6fb5"}},
+    {"name": "first", "type": "string", "default": "'#2d3cff'", "description": "Demo control: the colour that lands on top.", "control": {"kind": "color", "value": "#2d3cff"}},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the button (font, size)."}
+  ]
+}

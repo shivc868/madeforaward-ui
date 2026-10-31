@@ -1,0 +1,303 @@
+{
+  "slug": "halftone-hover",
+  "name": "Halftone Image Hover",
+  "description": "Turn any image into a halftone of dots that scatter around the cursor and drift back, in React. WebGL renders every dot in one draw call, so it stays smooth with tens of thousands of dots. Repel or attract, swirl, grow, dot shapes, hex grid, image colours, plus all the tone controls.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/HalftoneHover.tsx",
+  "usage": "import HalftoneHover from '@/components/mfa/HalftoneHover'\n\nexport default function Portrait() {\n  return (\n    <div className=\"aspect-[4/5] w-full max-w-md\">\n      <HalftoneHover src=\"/team/ava.jpg\" spacing={5} accentColor=\"#ff6a2b\" />\n    </div>\n  )\n}",
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "default": "'/mfa/halftone-hover/portrait.webp'",
+      "description": "Image URL. Remote hosts must send CORS headers (Unsplash, Cloudinary and your own /public do). Transparent areas get no dots."
+    },
+    {
+      "name": "mode",
+      "type": "'light' | 'dark'",
+      "default": "'light'",
+      "description": "'light' puts dots on bright areas, 'dark' on dark ones (use dark for photos on a light background).",
+      "control": {
+        "kind": "select",
+        "value": "light",
+        "options": [
+          "light",
+          "dark"
+        ]
+      }
+    },
+    {
+      "name": "threshold",
+      "type": "number",
+      "default": "22",
+      "description": "Tone (0–100) below which no dot is drawn. Raise it to drop the background.",
+      "control": {
+        "kind": "range",
+        "value": 22,
+        "min": 0,
+        "max": 90,
+        "step": 1
+      }
+    },
+    {
+      "name": "contrast",
+      "type": "number",
+      "default": "1.65",
+      "description": "Contrast applied to the image before it's turned into dots.",
+      "control": {
+        "kind": "range",
+        "value": 1.65,
+        "min": 0.2,
+        "max": 4,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "dotSize",
+      "type": "number",
+      "default": "2.2",
+      "description": "Largest dot radius, in px.",
+      "control": {
+        "kind": "range",
+        "value": 2.2,
+        "min": 0.5,
+        "max": 8,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "spacing",
+      "type": "number",
+      "default": "5",
+      "description": "Distance between dots, in px. Smaller = finer and more dots.",
+      "control": {
+        "kind": "range",
+        "value": 5,
+        "min": 2,
+        "max": 20,
+        "step": 1
+      }
+    },
+    {
+      "name": "variation",
+      "type": "number",
+      "default": "0.28",
+      "description": "Random size jitter, so the pattern doesn't look mechanical.",
+      "control": {
+        "kind": "range",
+        "value": 0.28,
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "grid",
+      "type": "'square' | 'hex'",
+      "default": "'square'",
+      "description": "Square grid, or every other row shifted half a step (print-like).",
+      "control": {
+        "kind": "select",
+        "value": "square",
+        "options": [
+          "square",
+          "hex"
+        ]
+      }
+    },
+    {
+      "name": "shape",
+      "type": "'circle' | 'square' | 'diamond'",
+      "default": "'circle'",
+      "description": "Dot shape.",
+      "control": {
+        "kind": "select",
+        "value": "circle",
+        "options": [
+          "circle",
+          "square",
+          "diamond"
+        ]
+      }
+    },
+    {
+      "name": "colorMode",
+      "type": "'mono' | 'image'",
+      "default": "'mono'",
+      "description": "'mono' uses primaryColor with a share of accentColor; 'image' gives every dot the image's own colour.",
+      "control": {
+        "kind": "select",
+        "value": "mono",
+        "options": [
+          "mono",
+          "image"
+        ]
+      }
+    },
+    {
+      "name": "primaryColor",
+      "type": "string",
+      "default": "'#ffffff'",
+      "description": "Main dot colour (mono).",
+      "control": {
+        "kind": "color",
+        "value": "#ffffff"
+      }
+    },
+    {
+      "name": "accentColor",
+      "type": "string",
+      "default": "'#ff6a2b'",
+      "description": "Accent dot colour (mono).",
+      "control": {
+        "kind": "color",
+        "value": "#ff6a2b"
+      }
+    },
+    {
+      "name": "accentAmount",
+      "type": "number",
+      "default": "0.11",
+      "description": "Share of dots in the accent colour, 0–1.",
+      "control": {
+        "kind": "range",
+        "value": 0.11,
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "effect",
+      "type": "'repel' | 'attract'",
+      "default": "'repel'",
+      "description": "'repel' pushes dots away from the pointer, 'attract' pulls them in.",
+      "control": {
+        "kind": "select",
+        "value": "repel",
+        "options": [
+          "repel",
+          "attract"
+        ]
+      }
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "120",
+      "description": "Pointer reach, in px.",
+      "control": {
+        "kind": "range",
+        "value": 120,
+        "min": 20,
+        "max": 320,
+        "step": 1
+      }
+    },
+    {
+      "name": "strength",
+      "type": "number",
+      "default": "48",
+      "description": "How far dots move, in px.",
+      "control": {
+        "kind": "range",
+        "value": 48,
+        "min": 0,
+        "max": 200,
+        "step": 1
+      }
+    },
+    {
+      "name": "swirl",
+      "type": "number",
+      "default": "0",
+      "description": "Sideways twist around the pointer, -1 to 1.",
+      "control": {
+        "kind": "range",
+        "value": 0,
+        "min": -1,
+        "max": 1,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "grow",
+      "type": "number",
+      "default": "0",
+      "description": "Dots under the pointer grow by this factor (0 = no change).",
+      "control": {
+        "kind": "range",
+        "value": 0,
+        "min": 0,
+        "max": 3,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "ease",
+      "type": "number",
+      "default": "0.12",
+      "description": "How fast dots follow and return, 0–1 per 60fps frame. Lower = floatier.",
+      "control": {
+        "kind": "range",
+        "value": 0.12,
+        "min": 0.02,
+        "max": 0.5,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "fit",
+      "type": "'cover' | 'contain'",
+      "default": "'contain'",
+      "description": "How the image fills the box.",
+      "control": {
+        "kind": "select",
+        "value": "contain",
+        "options": [
+          "cover",
+          "contain"
+        ]
+      }
+    },
+    {
+      "name": "imageScale",
+      "type": "number",
+      "default": "0.9",
+      "description": "Extra zoom on the image.",
+      "control": {
+        "kind": "range",
+        "value": 0.9,
+        "min": 0.3,
+        "max": 2,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "opacity",
+      "type": "number",
+      "default": "1",
+      "description": "Overall dot opacity."
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#000000'",
+      "description": "Background colour."
+    },
+    {
+      "name": "transparent",
+      "type": "boolean",
+      "default": "false",
+      "description": "Draw no background, so the dots sit over whatever is behind."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a size."
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "reading-fill-text",
+  "name": "Scroll Reading Text",
+  "description": "A scroll-driven text effect for React: a big paragraph fills word by word, left to right, from grey to colour as each line crosses the reading line, with inline icons that fill the same way. Words near the cursor step aside and settle back. No dependencies.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/ReadingFillText.tsx",
+  "usage": "import ReadingFillText from '@/components/mfa/ReadingFillText'\n\nexport default function About() {\n  return (\n    <section className=\"px-6 py-32\">\n      <ReadingFillText\n        className=\"text-[clamp(30px,4vw,80px)] leading-[1.07] font-semibold tracking-[-0.05em]\"\n        text=\"We build calm websites {spark} for loud ideas.\"\n      />\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "default": "studio paragraph with 5 icons",
+      "description": "The paragraph. Write {name} where an inline icon from `icons` should sit."
+    },
+    {
+      "name": "icons",
+      "type": "Record<string, string>",
+      "default": "sun, spark, bolt, heart, hand",
+      "description": "Inline icons by name: an SVG path for a 24\u00d724 viewBox, drawn as a stroke in the text colours."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "default": "'#1f3dff'",
+      "description": "Colour of read text.",
+      "control": {
+        "kind": "color",
+        "value": "#1f3dff"
+      }
+    },
+    {
+      "name": "dimColor",
+      "type": "string",
+      "default": "'#c3c6cf'",
+      "description": "Colour of text not read yet.",
+      "control": {
+        "kind": "color",
+        "value": "#c3c6cf"
+      }
+    },
+    {
+      "name": "readLine",
+      "type": "number",
+      "default": "0.58",
+      "description": "Where on the screen a line fills, from 0 (top) to 1 (bottom).",
+      "control": {
+        "kind": "range",
+        "value": 0.58,
+        "min": 0.2,
+        "max": 0.9,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "avoid",
+      "type": "boolean",
+      "default": "true",
+      "description": "Words near the mouse step aside.",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "avoidStrength",
+      "type": "number",
+      "default": "1",
+      "description": "How far words step aside.",
+      "control": {
+        "kind": "range",
+        "value": 1,
+        "min": 0,
+        "max": 2.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "scroller",
+      "type": "HTMLElement | null",
+      "default": "window",
+      "description": "The scrolling element, when it isn't the window."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h2' | 'div'",
+      "default": "'p'",
+      "description": "Element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the paragraph (font, size, line height)."
+    }
+  ]
+}

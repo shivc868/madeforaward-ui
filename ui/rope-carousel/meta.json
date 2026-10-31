@@ -1,0 +1,102 @@
+{
+  "slug": "rope-carousel",
+  "name": "Rope Carousel",
+  "description": "An infinite image carousel for React where photos hang from a curved rope: each card rides the catenary, leans with it and swings as its own pendulum, and the rope bounces when you throw it. Drag with momentum on mouse and touch, horizontal wheel or arrow keys. No dependencies; it sleeps when still or off screen.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/RopeCarousel.tsx",
+  "usage": "import RopeCarousel from '@/components/mfa/RopeCarousel'\n\nconst trips = [\n  {src: '/trips/dolomites.jpg', title: 'Dolomites', caption: 'Above the cloud line'},\n  {src: '/trips/tulum.jpg', title: 'Tulum', caption: 'First swim, 7am', href: '/trips/tulum'},\n  // …\n]\n\nexport default function Journal() {\n  return (\n    <section className=\"h-[640px]\">\n      <RopeCarousel items={trips} />\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "{src: string; title?: string; caption?: string; href?: string}[]",
+      "default": "10 Unsplash travel photos",
+      "description": "The photos, with a title and caption on each print. With href, the card is a link. The line loops."
+    },
+    {
+      "name": "cardWidth",
+      "type": "number",
+      "default": "240",
+      "description": "Card width in px; scaled down on containers narrower than 1100px."
+    },
+    {
+      "name": "ratio",
+      "type": "number",
+      "default": "0.8",
+      "description": "Photo width divided by height."
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "default": "36",
+      "description": "Space between cards, in px.",
+      "control": {"kind": "range", "value": 36, "min": 0, "max": 120, "step": 1}
+    },
+    {
+      "name": "sag",
+      "type": "number",
+      "default": "90",
+      "description": "How far the rope hangs in the middle, in px.",
+      "control": {"kind": "range", "value": 90, "min": 0, "max": 220, "step": 1}
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "30",
+      "description": "Autoplay speed in px per second. 0 keeps the line still until it is dragged.",
+      "control": {"kind": "range", "value": 30, "min": 0, "max": 160, "step": 1}
+    },
+    {
+      "name": "direction",
+      "type": "'left' | 'right'",
+      "default": "'left'",
+      "description": "Which way autoplay moves the line.",
+      "control": {"kind": "select", "value": "left", "options": ["left", "right"]}
+    },
+    {
+      "name": "sway",
+      "type": "number",
+      "default": "0.8",
+      "description": "How much cards swing when the line speeds up, slows down or the pointer brushes them. 0 turns swinging off.",
+      "control": {"kind": "range", "value": 0.8, "min": 0, "max": 2, "step": 0.05}
+    },
+    {
+      "name": "pauseOnHover",
+      "type": "boolean",
+      "default": "true",
+      "description": "Stop autoplay while a mouse is over the carousel."
+    },
+    {
+      "name": "ropeColor",
+      "type": "string",
+      "default": "'#9b9184'",
+      "description": "Colour of the rope."
+    },
+    {
+      "name": "clipColor",
+      "type": "string",
+      "default": "'#ff6a2b'",
+      "description": "Colour of the clips.",
+      "control": {"kind": "color", "value": "#ff6a2b"}
+    },
+    {
+      "name": "background",
+      "type": "string",
+      "default": "'#0e0d0c'",
+      "description": "Background colour."
+    },
+    {
+      "name": "edgeFade",
+      "type": "number",
+      "default": "80",
+      "description": "Width of the soft fade at both edges, in px. 0 turns it off."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height."
+    }
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "slug": "drip-button",
+  "name": "Drip Button",
+  "description": "A GSAP button hover effect where paint melts off the button: it sags along the edge and runs down in a few uneven drips, the longest keep creeping and shedding drops, and it all climbs back up on mouse leave. Gooey SVG filter, any colour, any size.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/DripButton.tsx",
+  "usage": "import DripButton from '@/components/mfa/DripButton'\n\nexport default function Cta() {\n  return (\n    <DripButton href=\"/contact\" color=\"#ff6a2b\">\n      Let’s talk with us!\n    </DripButton>\n  )\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "'Let’s talk'",
+      "description": "The button label."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "default": "'#ff6a2b'",
+      "description": "Paint colour: the button and its drips.",
+      "control": {
+        "kind": "color",
+        "value": "#ff6a2b"
+      }
+    },
+    {
+      "name": "textColor",
+      "type": "string",
+      "default": "'#ffffff'",
+      "description": "Label colour."
+    },
+    {
+      "name": "drips",
+      "type": "number",
+      "default": "4",
+      "description": "Number of drips. Shallow sags along the edge are added between them.",
+      "control": {
+        "kind": "range",
+        "value": 4,
+        "min": 2,
+        "max": 8,
+        "step": 1
+      }
+    },
+    {
+      "name": "length",
+      "type": "number",
+      "default": "90",
+      "description": "Longest drip, in px.",
+      "control": {
+        "kind": "range",
+        "value": 90,
+        "min": 20,
+        "max": 160,
+        "step": 5
+      }
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "0.9",
+      "description": "Seconds for the drips to run down.",
+      "control": {
+        "kind": "range",
+        "value": 0.9,
+        "min": 0.2,
+        "max": 2,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "drops",
+      "type": "boolean",
+      "default": "true",
+      "description": "Drops keep falling from the two longest drips while hovered.",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "seed",
+      "type": "number",
+      "default": "11",
+      "description": "Changes the drip pattern (positions, widths, lengths)."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "14",
+      "description": "Corner radius in px. The paint runs only from the straight part of the edge."
+    },
+    {
+      "name": "href",
+      "type": "string",
+      "default": "—",
+      "description": "Renders a link instead of a button."
+    },
+    {
+      "name": "onClick",
+      "type": "() => void",
+      "default": "—",
+      "description": "Click handler."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the button: padding, font, size."
+    }
+  ]
+}

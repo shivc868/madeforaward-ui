@@ -1,0 +1,66 @@
+{
+  "slug": "skew-slide-button",
+  "name": "Skew Slide Button",
+  "description": "A React button hover effect: the label swaps letter by letter, the resting copy leaning back and sliding out while a second copy slides in upright behind it, chevrons included; the plate swells on hover and squashes on press. Pure CSS transitions with Tailwind, no JS.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/SkewSlideButton.tsx",
+  "usage": "import SkewSlideButton from '@/components/mfa/SkewSlideButton'\n\nexport default function Cta() {\n  return (\n    <SkewSlideButton href=\"/contact\" className=\"text-lg font-[Anton]\">\n      Book a ride\n    </SkewSlideButton>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "children",
+      "type": "string",
+      "default": "'Book a ride'",
+      "description": "The label (plain text; it is split into letters)."
+    },
+    {
+      "name": "href / onClick",
+      "type": "string / () => void",
+      "default": "\u2014",
+      "description": "With href it renders a link, otherwise a button."
+    },
+    {
+      "name": "color",
+      "type": "string",
+      "default": "'#ff5a1f'",
+      "description": "Button colour.",
+      "control": {
+        "kind": "color",
+        "value": "#ff5a1f"
+      }
+    },
+    {
+      "name": "ink",
+      "type": "string",
+      "default": "'#140b06'",
+      "description": "Text and arrow colour."
+    },
+    {
+      "name": "arrow",
+      "type": "boolean",
+      "default": "true",
+      "description": "Show the double chevron after the label; it swaps with the letters."
+    },
+    {
+      "name": "stagger",
+      "type": "number",
+      "default": "0.018",
+      "description": "Seconds between letters.",
+      "control": {
+        "kind": "range",
+        "value": 0.018,
+        "min": 0,
+        "max": 0.06,
+        "step": 0.002
+      }
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Font and size go here (made for a condensed display face, uppercase)."
+    }
+  ]
+}

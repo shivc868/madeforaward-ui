@@ -1,0 +1,165 @@
+{
+  "slug": "liquid-image-hover",
+  "name": "Liquid Image Hover",
+  "description": "A WebGL image hover for React: the picture turns to water under the cursor. A real ripple simulation takes a trail of drops, and the image is refracted through it with a chromatic split, slope shading, highlights lit from the pointer and caustics. Splashes in on first view; rests when the water is flat. three.js.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/LiquidImageHover.tsx",
+  "usage": "import LiquidImageHover from '@/components/mfa/LiquidImageHover'\n\nexport default function Case() {\n  return (\n    <figure className=\"aspect-[3/2] w-full overflow-hidden rounded-xl\">\n      <LiquidImageHover src=\"/work/case-cover.jpg\" alt=\"Case study\" />\n    </figure>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "src",
+      "type": "string",
+      "default": "Unsplash photo",
+      "description": "The image (remote hosts need CORS). It fills the box like object-fit: cover."
+    },
+    {
+      "name": "alt",
+      "type": "string",
+      "default": "''",
+      "description": "Alt text."
+    },
+    {
+      "name": "refraction",
+      "type": "number",
+      "default": "2.4",
+      "description": "How far the water bends the picture.",
+      "control": {
+        "kind": "range",
+        "value": 2.4,
+        "min": 0,
+        "max": 5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "dispersion",
+      "type": "number",
+      "default": "0.6",
+      "description": "Colour split at the ripple edges.",
+      "control": {
+        "kind": "range",
+        "value": 0.6,
+        "min": 0,
+        "max": 1,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "shade",
+      "type": "number",
+      "default": "0.4",
+      "description": "Light and shade on the slopes.",
+      "control": {
+        "kind": "range",
+        "value": 0.4,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "gloss",
+      "type": "number",
+      "default": "0.25",
+      "description": "Highlights on the crests.",
+      "control": {
+        "kind": "range",
+        "value": 0.25,
+        "min": 0,
+        "max": 2,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "caustics",
+      "type": "number",
+      "default": "1.4",
+      "description": "Bright caustic lines on the crests.",
+      "control": {
+        "kind": "range",
+        "value": 1.4,
+        "min": 0,
+        "max": 3,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "damping",
+      "type": "number",
+      "default": "0.977",
+      "description": "Ripple life (higher lasts longer).",
+      "control": {
+        "kind": "range",
+        "value": 0.977,
+        "min": 0.95,
+        "max": 0.995,
+        "step": 0.001
+      }
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "2",
+      "description": "Simulation steps per frame (ripple speed).",
+      "control": {
+        "kind": "range",
+        "value": 2,
+        "min": 1,
+        "max": 4,
+        "step": 1
+      }
+    },
+    {
+      "name": "dropSize",
+      "type": "number",
+      "default": "0.032",
+      "description": "Drop size, as a share of the image height.",
+      "control": {
+        "kind": "range",
+        "value": 0.032,
+        "min": 0.01,
+        "max": 0.08,
+        "step": 0.001
+      }
+    },
+    {
+      "name": "dropForce",
+      "type": "number",
+      "default": "0.12",
+      "description": "Drop strength.",
+      "control": {
+        "kind": "range",
+        "value": 0.12,
+        "min": 0.02,
+        "max": 0.3,
+        "step": 0.005
+      }
+    },
+    {
+      "name": "shine",
+      "type": "number",
+      "default": "80",
+      "description": "Highlight sharpness."
+    },
+    {
+      "name": "entrySplash",
+      "type": "number",
+      "default": "0.36",
+      "description": "Splash with a ring of drops when the image first comes into view; 0 turns it off."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a size."
+    }
+  ]
+}

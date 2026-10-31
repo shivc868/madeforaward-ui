@@ -1,0 +1,32 @@
+{
+  "slug": "dot-highway-background",
+  "name": "Particle Road Background",
+  "description": "A three.js particle background for React: a road of dots streams out of a vanishing point under a low camera, curving up into the distance, with faint accent pulses running down the lanes. Dots under the cursor lift, wobble and glow; a click sends a pulse through them. One point cloud, live settings, pauses off screen.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "dependencies": {
+    "three": "^0.184.0"
+  },
+  "devDependencies": {
+    "@types/three": "^0.184.0"
+  },
+  "entry": "components/mfa/DotHighwayBackground.tsx",
+  "usage": "import DotHighwayBackground from '@/components/mfa/DotHighwayBackground'\n\nexport default function Cta() {\n  return (\n    <section className=\"h-[640px] overflow-hidden rounded-3xl\">\n      <DotHighwayBackground accent=\"#ee421b\">\n        <h2 className=\"pt-24 text-center text-6xl font-semibold\">Built for scale</h2>\n      </DotHighwayBackground>\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "color", "type": "string", "default": "'#efefef'", "description": "Dot colour.", "control": {"kind": "color", "value": "#efefef"}},
+    {"name": "accent", "type": "string", "default": "'#ee421b'", "description": "Colour of the lane pulses and the cursor's pocket.", "control": {"kind": "color", "value": "#ee421b"}},
+    {"name": "from", "type": "string", "default": "'#dedede'", "description": "Background gradient, top.", "control": {"kind": "color", "value": "#dedede"}},
+    {"name": "to", "type": "string", "default": "'#222222'", "description": "Background gradient, bottom.", "control": {"kind": "color", "value": "#222222"}},
+    {"name": "speed", "type": "number", "default": "1", "description": "Travel speed.", "control": {"kind": "range", "value": 1, "min": 0, "max": 5, "step": 0.1}},
+    {"name": "curve", "type": "number", "default": "14", "description": "How far the road bends up into the distance.", "control": {"kind": "range", "value": 14, "min": 0, "max": 40, "step": 0.5}},
+    {"name": "dotSize", "type": "number", "default": "1.6", "description": "Dot size.", "control": {"kind": "range", "value": 1.6, "min": 0.5, "max": 5, "step": 0.1}},
+    {"name": "opacity", "type": "number", "default": "0.55", "description": "Dot opacity.", "control": {"kind": "range", "value": 0.55, "min": 0.05, "max": 1, "step": 0.05}},
+    {"name": "pulses", "type": "number", "default": "0.45", "description": "Strength of the accent pulses running down the lanes (0 = none).", "control": {"kind": "range", "value": 0.45, "min": 0, "max": 1, "step": 0.05}},
+    {"name": "hover", "type": "number", "default": "0.4", "description": "How high the dots under the cursor lift (0 = no hover).", "control": {"kind": "range", "value": 0.4, "min": 0, "max": 2, "step": 0.05}},
+    {"name": "radius", "type": "number", "default": "0.44", "description": "Size of the cursor's pocket.", "control": {"kind": "range", "value": 0.44, "min": 0.1, "max": 1.2, "step": 0.02}},
+    {"name": "parallax", "type": "boolean", "default": "true", "description": "Tilt the view as the section scrolls through the viewport.", "control": {"kind": "switch", "value": true}},
+    {"name": "children", "type": "ReactNode", "default": "—", "description": "Content laid over the background."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the wrapper. It fills its parent, so give the parent a height."}
+  ]
+}

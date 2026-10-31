@@ -1,0 +1,106 @@
+{
+  "slug": "liquid-dock",
+  "name": "Liquid Dock",
+  "description": "A React dock navigation with a liquid highlight: a gooey blob slides on a spring to the hovered icon, stretches toward the cursor and takes each item's colour, with magnifying icons, springy tooltips and an active state it flows back to. Motion + an SVG goo filter.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "motion": "^12.43.0"
+  },
+  "entry": "components/mfa/LiquidDock.tsx",
+  "usage": "import LiquidDock from '@/components/mfa/LiquidDock'\n\nexport default function Nav() {\n  return (\n    <div className=\"fixed inset-x-0 bottom-6 flex justify-center\">\n      <LiquidDock\n        items={[\n          {icon: 'home', label: 'Home', href: '/', color: '#FF8A5C'},\n          {icon: 'folder', label: 'Work', href: '/work', color: '#A78BFA'},\n          {icon: 'inbox', label: 'Contact', href: '/contact', color: '#5EE0C0'},\n        ]}\n      />\n    </div>\n  )\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "{icon: DockIcon; label: string; href?: string; color?: string}[]",
+      "default": "6 items (home, search, inbox, folder, spark, settings)",
+      "description": "Dock items. color is the blob and tooltip colour when the item is lit. Icons: home, search, inbox, folder, spark, heart, bell, user, settings."
+    },
+    {
+      "name": "active",
+      "type": "number | null",
+      "default": "0",
+      "description": "Item lit when nothing is hovered (clicks change it). null hides the blob at rest."
+    },
+    {
+      "name": "onSelect",
+      "type": "(index: number) => void",
+      "default": "—",
+      "description": "Called when an item is clicked or tapped."
+    },
+    {
+      "name": "size",
+      "type": "number",
+      "default": "48",
+      "description": "Item size in px; padding and gaps scale with it.",
+      "control": {
+        "kind": "range",
+        "value": 48,
+        "min": 36,
+        "max": 72,
+        "step": 1
+      }
+    },
+    {
+      "name": "magnify",
+      "type": "number",
+      "default": "1.25",
+      "description": "How much icons near the pointer grow. 1 turns it off.",
+      "control": {
+        "kind": "range",
+        "value": 1.25,
+        "min": 1,
+        "max": 2,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "stretch",
+      "type": "number",
+      "default": "1",
+      "description": "How far the liquid leans and reaches toward the pointer. 0 keeps a plain sliding blob.",
+      "control": {
+        "kind": "range",
+        "value": 1,
+        "min": 0,
+        "max": 1.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "tooltips",
+      "type": "boolean",
+      "default": "true",
+      "description": "Show the label above the hovered item.",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "glass",
+      "type": "string",
+      "default": "'rgba(16, 16, 20, 0.55)'",
+      "description": "Dock colour; keep some transparency for the glass blur."
+    },
+    {
+      "name": "iconColor",
+      "type": "string",
+      "default": "'rgba(255, 255, 255, 0.72)'",
+      "description": "Icon colour at rest."
+    },
+    {
+      "name": "inkColor",
+      "type": "string",
+      "default": "'#141416'",
+      "description": "Icon and tooltip text colour on the blob."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper."
+    }
+  ],
+  "badge": "new"
+}

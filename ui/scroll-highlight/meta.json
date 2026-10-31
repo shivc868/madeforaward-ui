@@ -1,0 +1,65 @@
+{
+  "slug": "scroll-highlight",
+  "name": "Scroll Highlight Text",
+  "description": "A GSAP ScrollTrigger text reveal: the words of a paragraph light up one by one as it scrolls through the viewport, scrubbed to the scroll, and dim again on the way back.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/ScrollHighlight.tsx",
+  "usage": "import ScrollHighlight from '@/components/mfa/ScrollHighlight'\n\nexport default function Manifesto() {\n  return (\n    <ScrollHighlight\n      className=\"max-w-4xl text-5xl font-medium leading-tight\"\n      text=\"We build interfaces that feel inevitable.\"\n    />\n  )\n}",
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "default": "sample paragraph",
+      "description": "The paragraph."
+    },
+    {
+      "name": "dim",
+      "type": "number",
+      "default": "0.15",
+      "description": "Opacity of the words not reached yet.",
+      "control": {"kind": "range", "value": 0.15, "min": 0, "max": 0.6, "step": 0.05}
+    },
+    {
+      "name": "blur",
+      "type": "number",
+      "default": "0",
+      "description": "Blur in px on the words not reached yet. 0 keeps them sharp (and is cheaper).",
+      "control": {"kind": "range", "value": 0, "min": 0, "max": 8, "step": 1}
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 80%'",
+      "description": "Where the read-through starts, as a ScrollTrigger start."
+    },
+    {
+      "name": "end",
+      "type": "string",
+      "default": "'bottom 45%'",
+      "description": "Where every word is lit, as a ScrollTrigger end."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, if the text sits inside its own scroll container."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h1' | 'h2' | 'h3' | 'div'",
+      "default": "'p'",
+      "description": "The element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the text element."
+    }
+  ]
+}

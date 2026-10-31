@@ -1,0 +1,211 @@
+{
+  "slug": "liquid-smoke-cursor",
+  "name": "Liquid Smoke Cursor",
+  "description": "A WebGL fluid smoke cursor for React: a real GPU fluid simulation (velocity, pressure, vorticity) follows the pointer and fades out behind it. Full-page overlay or inside one box, any colour or rainbow, four blend modes, dot or ring cursor, click bursts. Sleeps when still, no dependencies.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/LiquidSmokeCursor.tsx",
+  "usage": "import LiquidSmokeCursor from '@/components/mfa/LiquidSmokeCursor'\n\n// app/layout.tsx: a full-page trail over everything\nexport default function RootLayout({children}: {children: React.ReactNode}) {\n  return (\n    <html lang=\"en\">\n      <body>\n        {children}\n        <div className=\"pointer-events-none fixed inset-0 z-50\">\n          <LiquidSmokeCursor blend=\"screen\" color=\"#FF7A3D\" />\n        </div>\n      </body>\n    </html>\n  )\n}",
+  "props": [
+    {
+      "name": "color",
+      "type": "string",
+      "default": "'#FF7A3D'",
+      "description": "Smoke colour (ignored with rainbow).",
+      "control": {
+        "kind": "color",
+        "value": "#FF7A3D"
+      }
+    },
+    {
+      "name": "rainbow",
+      "type": "boolean",
+      "default": "false",
+      "description": "Cycle the hue on its own.",
+      "control": {
+        "kind": "switch",
+        "value": false
+      }
+    },
+    {
+      "name": "intensity",
+      "type": "number",
+      "default": "1",
+      "description": "How dense the smoke looks.",
+      "control": {
+        "kind": "range",
+        "value": 1,
+        "min": 0.1,
+        "max": 3,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "blend",
+      "type": "'normal' | 'screen' | 'multiply' | 'difference'",
+      "default": "'normal'",
+      "description": "Blend mode with the page. Screen for dark sites, multiply for dark ink on light ones.",
+      "control": {
+        "kind": "select",
+        "value": "screen",
+        "options": [
+          "normal",
+          "screen",
+          "multiply",
+          "difference"
+        ]
+      }
+    },
+    {
+      "name": "fade",
+      "type": "number",
+      "default": "2.5",
+      "description": "How fast the trail fades.",
+      "control": {
+        "kind": "range",
+        "value": 2.5,
+        "min": 0.2,
+        "max": 12,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "force",
+      "type": "number",
+      "default": "6000",
+      "description": "How hard the pointer pushes the fluid.",
+      "control": {
+        "kind": "range",
+        "value": 6000,
+        "min": 500,
+        "max": 20000,
+        "step": 100
+      }
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "0.25",
+      "description": "Size of each splat.",
+      "control": {
+        "kind": "range",
+        "value": 0.25,
+        "min": 0.02,
+        "max": 1,
+        "step": 0.01
+      }
+    },
+    {
+      "name": "swirl",
+      "type": "number",
+      "default": "10",
+      "description": "Vorticity: how much the smoke curls.",
+      "control": {
+        "kind": "range",
+        "value": 10,
+        "min": 0,
+        "max": 50,
+        "step": 1
+      }
+    },
+    {
+      "name": "shading",
+      "type": "boolean",
+      "default": "true",
+      "description": "Soft light on the smoke's folds.",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "clickBurst",
+      "type": "boolean",
+      "default": "true",
+      "description": "A click or tap puffs smoke out in a ring.",
+      "control": {
+        "kind": "switch",
+        "value": true
+      }
+    },
+    {
+      "name": "quality",
+      "type": "'low' | 'medium' | 'high'",
+      "default": "'medium'",
+      "description": "Simulation and dye resolution.",
+      "control": {
+        "kind": "select",
+        "value": "medium",
+        "options": [
+          "low",
+          "medium",
+          "high"
+        ]
+      }
+    },
+    {
+      "name": "cursor",
+      "type": "'system' | 'dot' | 'ring'",
+      "default": "'system'",
+      "description": "Draws a dot or ring at the pointer. To hide the arrow, add cursor-none to your page.",
+      "control": {
+        "kind": "select",
+        "value": "ring",
+        "options": [
+          "system",
+          "dot",
+          "ring"
+        ]
+      }
+    },
+    {
+      "name": "cursorSize",
+      "type": "number",
+      "default": "12",
+      "description": "Dot size in px (a ring is 2.8× this).",
+      "control": {
+        "kind": "range",
+        "value": 12,
+        "min": 4,
+        "max": 40,
+        "step": 1
+      }
+    },
+    {
+      "name": "cursorColor",
+      "type": "string",
+      "default": "'#FFFFFF'",
+      "description": "Dot / ring colour.",
+      "control": {
+        "kind": "color",
+        "value": "#FFFFFF"
+      }
+    },
+    {
+      "name": "area",
+      "type": "'page' | 'inside'",
+      "default": "'page'",
+      "description": "'page' follows the pointer over the whole window: pin the component with fixed inset-0 (it never blocks clicks). 'inside' keeps the trail within this box."
+    },
+    {
+      "name": "hoverDetection",
+      "type": "boolean",
+      "default": "false",
+      "description": "With a dot or ring and area 'page': grows over links and buttons, steps aside over text fields. Add data-smoke-hover to anything else that should count."
+    },
+    {
+      "name": "respectReducedMotion",
+      "type": "boolean",
+      "default": "true",
+      "description": "Off for visitors who ask their system for less motion."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent."
+    }
+  ],
+  "badge": "new"
+}

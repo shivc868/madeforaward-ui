@@ -1,0 +1,65 @@
+{
+  "slug": "masked-line-reveal",
+  "name": "Masked Line Reveal",
+  "description": "A GSAP SplitText line reveal: each line of a heading or paragraph rises out of its own mask, one after another, when it scrolls into view. Lines follow the real line breaks and re-split on resize.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/MaskedLineReveal.tsx",
+  "usage": "import MaskedLineReveal from '@/components/mfa/MaskedLineReveal'\n\nexport default function Hero() {\n  return (\n    <MaskedLineReveal as=\"h1\" className=\"text-6xl font-semibold leading-tight\">\n      We shape brands for the moments people actually remember.\n    </MaskedLineReveal>\n  )\n}",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "sample sentence",
+      "description": "The text. Inline markup (em, strong, links) is kept."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "1.1",
+      "description": "Seconds per line.",
+      "control": {"kind": "range", "value": 1.1, "min": 0.3, "max": 2.5, "step": 0.1}
+    },
+    {
+      "name": "stagger",
+      "type": "number",
+      "default": "0.1",
+      "description": "Seconds between lines.",
+      "control": {"kind": "range", "value": 0.1, "min": 0, "max": 0.4, "step": 0.02}
+    },
+    {
+      "name": "trigger",
+      "type": "'view' | 'mount'",
+      "default": "'view'",
+      "description": "'view' plays once when the text scrolls into view; 'mount' plays right away."
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 85%'",
+      "description": "When 'view' starts, as a ScrollTrigger start."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, if the text sits inside its own scroll container."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h1' | 'h2' | 'h3' | 'div'",
+      "default": "'p'",
+      "description": "The element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the text element."
+    }
+  ]
+}

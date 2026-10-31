@@ -1,0 +1,121 @@
+{
+  "slug": "spine-accordion",
+  "name": "Spine Accordion",
+  "description": "An expanding accordion for React built from tall spines with vertical titles: the open one widens into a coloured panel, its artwork glides out of the spine and grows into place, and the plus turns into an autoplay progress ring. Hover intent, keyboard and touch, stacked layout on narrow screens. Spring motion with Motion.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {
+    "motion": "^12.43.0"
+  },
+  "entry": "components/mfa/SpineAccordion.tsx",
+  "usage": "import SpineAccordion from '@/components/mfa/SpineAccordion'\n\nconst services = [\n  {title: 'Discover', description: 'Workshops and research.', image: '/art/discover.webp', tone: '#B9AEF2', linkLabel: 'See the process', href: '/process'},\n  // …\n]\n\nexport default function Services() {\n  return <SpineAccordion items={services} autoplay />\n}",
+  "props": [
+    {
+      "name": "items",
+      "type": "{title: string; description?: string; image?: string; imageAlt?: string; imageScale?: number; tone?: string; coverColor?: string; linkLabel?: string; href?: string; newTab?: boolean}[]",
+      "default": "5 studio services with chrome artwork",
+      "description": "The panels. Artwork works best as a transparent PNG/WebP; tone is the open panel's colour, coverColor the spine's. With href the open panel is a link."
+    },
+    {
+      "name": "initialOpen",
+      "type": "number",
+      "default": "3",
+      "description": "1-based index of the panel open at start. 0 starts with everything closed (when collapsible)."
+    },
+    {
+      "name": "collapsible",
+      "type": "boolean",
+      "default": "true",
+      "description": "Clicking the open panel closes it."
+    },
+    {
+      "name": "hoverToOpen",
+      "type": "boolean",
+      "default": "true",
+      "description": "A resting mouse opens a spine after a short intent delay. Touch always uses taps.",
+      "control": {"kind": "switch", "value": true}
+    },
+    {
+      "name": "autoplay",
+      "type": "boolean",
+      "default": "true",
+      "description": "Moves to the next panel on a timer, with a progress ring and a pause button. Waits while the pointer is over it or it's off screen.",
+      "control": {"kind": "switch", "value": true}
+    },
+    {
+      "name": "interval",
+      "type": "number",
+      "default": "5",
+      "description": "Seconds per panel when autoplay is on (min 2).",
+      "control": {"kind": "range", "value": 5, "min": 2, "max": 12, "step": 0.5}
+    },
+    {
+      "name": "cardHeight",
+      "type": "number",
+      "default": "520",
+      "description": "Panel height in the side-by-side layout, in px. Grows if the copy needs more room."
+    },
+    {
+      "name": "closedWidth",
+      "type": "number",
+      "default": "112",
+      "description": "Width of a closed spine, in px.",
+      "control": {"kind": "range", "value": 112, "min": 80, "max": 160, "step": 1}
+    },
+    {
+      "name": "mobileHeaderHeight",
+      "type": "number",
+      "default": "96",
+      "description": "Header height of each row in the stacked layout, in px."
+    },
+    {
+      "name": "breakpoint",
+      "type": "number",
+      "default": "820",
+      "description": "Container width (px) from which the spines sit side by side; narrower containers stack them."
+    },
+    {
+      "name": "minOpenWidth",
+      "type": "number",
+      "default": "442",
+      "description": "Narrowest the open panel may get before the row scrolls sideways, in px."
+    },
+    {
+      "name": "gap",
+      "type": "number",
+      "default": "8",
+      "description": "Space between spines, in px."
+    },
+    {
+      "name": "radius",
+      "type": "number",
+      "default": "8",
+      "description": "Corner radius, in px."
+    },
+    {
+      "name": "artTravel",
+      "type": "number",
+      "default": "4",
+      "description": "How far the artwork follows the pointer on the open panel, in px.",
+      "control": {"kind": "range", "value": 4, "min": 0, "max": 12, "step": 1}
+    },
+    {
+      "name": "hoverMotion",
+      "type": "boolean",
+      "default": "true",
+      "description": "Artwork floats, tilts and follows the pointer on the open panel."
+    },
+    {
+      "name": "textColor / secondaryColor / coverTextColor / focusColor",
+      "type": "string",
+      "default": "'#24262B' / '#30343D' / '#EFEEE9' / '#D7D5E5'",
+      "description": "Text on the open panel, its description, text on the spines, and the keyboard focus ring."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It takes its parent's width."
+    }
+  ]
+}

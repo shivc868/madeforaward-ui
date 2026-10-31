@@ -1,0 +1,72 @@
+{
+  "slug": "silk-cursor-trail",
+  "name": "Silk Cursor Trail",
+  "description": "A smooth cursor trail effect for React: a glowing ribbon that follows the pointer like a silk thread, bends through every turn, tapers from head to tail and gathers back when the pointer rests. Canvas 2D, no dependencies.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/SilkCursorTrail.tsx",
+  "usage": "import SilkCursorTrail from '@/components/mfa/SilkCursorTrail'\n\n// Once, e.g. in your root layout: it covers the viewport and never blocks clicks.\nexport default function Layout({children}: {children: React.ReactNode}) {\n  return (\n    <>\n      {children}\n      <SilkCursorTrail headColor=\"#ff8a3d\" tailColor=\"#ff3d81\" />\n    </>\n  )\n}",
+  "props": [
+    {
+      "name": "length",
+      "type": "number",
+      "default": "48",
+      "description": "Points in the trail. More points = a longer tail.",
+      "control": {"kind": "range", "value": 48, "min": 10, "max": 120, "step": 1}
+    },
+    {
+      "name": "headWidth",
+      "type": "number",
+      "default": "6",
+      "description": "Stroke width at the head, in px.",
+      "control": {"kind": "range", "value": 6, "min": 1, "max": 20, "step": 0.5}
+    },
+    {
+      "name": "tailWidth",
+      "type": "number",
+      "default": "0.6",
+      "description": "Stroke width at the tail, in px."
+    },
+    {
+      "name": "headColor",
+      "type": "string",
+      "default": "'#ff8a3d'",
+      "description": "Colour at the head (any CSS colour). The glow uses it too.",
+      "control": {"kind": "color", "value": "#ff8a3d"}
+    },
+    {
+      "name": "tailColor",
+      "type": "string",
+      "default": "'#ff3d81'",
+      "description": "Colour at the tail. Use a transparent colour to fade the tail out.",
+      "control": {"kind": "color", "value": "#ff3d81"}
+    },
+    {
+      "name": "smoothing",
+      "type": "number",
+      "default": "0.55",
+      "description": "How loosely the trail follows, from 0.1 (tight) to 1 (slow and silky).",
+      "control": {"kind": "range", "value": 0.55, "min": 0.1, "max": 1, "step": 0.05}
+    },
+    {
+      "name": "glow",
+      "type": "number",
+      "default": "10",
+      "description": "Soft glow around the trail, in px. 0 = none.",
+      "control": {"kind": "range", "value": 10, "min": 0, "max": 30, "step": 1}
+    },
+    {
+      "name": "fixed",
+      "type": "boolean",
+      "default": "true",
+      "description": "Cover the whole viewport. false keeps it inside the parent (give the parent position: relative)."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the canvas, e.g. a different z-index."
+    }
+  ]
+}

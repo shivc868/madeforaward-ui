@@ -1,0 +1,151 @@
+{
+  "slug": "tear-ticket",
+  "name": "Tear Ticket",
+  "description": "An interactive ticket for React whose perforated stub tears off by hand: it swings about the far end of a cleanly cut perforation, each paper bridge stretches into fibres and snaps (nearest first), and the stub hangs from your hand, then falls with your throw. The ticket greys out and gets stamped. 3D tilt; no dependencies.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/TearTicket.tsx",
+  "usage": "import TearTicket from '@/components/mfa/TearTicket'\n\nexport default function Pass() {\n  return (\n    <TearTicket image=\"/events/neon-tide.jpg\" onTear={() => console.log('checked in')}>\n      <p className=\"text-lg font-semibold\">Neon Tide</p>\n    </TearTicket>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "event name, venue, date",
+      "description": "Content of the ticket body, over the foot of the artwork."
+    },
+    {
+      "name": "stub",
+      "type": "ReactNode",
+      "default": "ADMIT ONE, row, seat, barcode",
+      "description": "Content of the tear-off stub."
+    },
+    {
+      "name": "image",
+      "type": "string",
+      "default": "Unsplash concert photo",
+      "description": "Artwork on the body. It fades to grey once the ticket is used."
+    },
+    {
+      "name": "imageAlt",
+      "type": "string",
+      "default": "''",
+      "description": "Alt text for the artwork."
+    },
+    {
+      "name": "onTear",
+      "type": "() => void",
+      "default": "\u2014",
+      "description": "Fires once the stub has come free and dropped away."
+    },
+    {
+      "name": "tearAngle",
+      "type": "number",
+      "default": "30",
+      "description": "How far the stub may swing about its hinge before it must come free, in degrees.",
+      "control": {
+        "kind": "range",
+        "value": 30,
+        "min": 5,
+        "max": 60,
+        "step": 1
+      }
+    },
+    {
+      "name": "stretch",
+      "type": "number",
+      "default": "30",
+      "description": "How far a paper bridge between two holes stretches before it snaps, in px.",
+      "control": {
+        "kind": "range",
+        "value": 30,
+        "min": 0,
+        "max": 80,
+        "step": 1
+      }
+    },
+    {
+      "name": "resistance",
+      "type": "number",
+      "default": "0.45",
+      "description": "How hard the paper still joined holds the stub back (0\u20130.95).",
+      "control": {
+        "kind": "range",
+        "value": 0.45,
+        "min": 0,
+        "max": 1.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "tilt",
+      "type": "number",
+      "default": "9",
+      "description": "3D tilt toward the pointer in degrees. 0 turns it off.",
+      "control": {
+        "kind": "range",
+        "value": 9,
+        "min": 0,
+        "max": 20,
+        "step": 0.5
+      }
+    },
+    {
+      "name": "rotate",
+      "type": "number",
+      "default": "-3",
+      "description": "Resting rotation in degrees.",
+      "control": {
+        "kind": "range",
+        "value": -3,
+        "min": -12,
+        "max": 12,
+        "step": 0.5
+      }
+    },
+    {
+      "name": "holes",
+      "type": "number",
+      "default": "12",
+      "description": "Perforation holes along the tear line.",
+      "control": {
+        "kind": "range",
+        "value": 12,
+        "min": 4,
+        "max": 24,
+        "step": 1
+      }
+    },
+    {
+      "name": "width / height / stubSize",
+      "type": "number",
+      "default": "460 / 250 / 150",
+      "description": "Ticket size and stub width in px. The ticket scales down to fit a narrower parent."
+    },
+    {
+      "name": "radius / holeSize / notch",
+      "type": "number",
+      "default": "16 / 6 / 9",
+      "description": "Corner radius, hole diameter and end-notch radius in px."
+    },
+    {
+      "name": "tiltReach / parallax",
+      "type": "number",
+      "default": "260 / 6",
+      "description": "How far from the ticket the pointer still tilts it, and the artwork's parallax, in px."
+    },
+    {
+      "name": "paper / ink",
+      "type": "string",
+      "default": "'#f3eee4' / '#1b1a17'",
+      "description": "Paper and ink colours."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper."
+    }
+  ]
+}

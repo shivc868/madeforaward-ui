@@ -1,0 +1,25 @@
+{
+  "slug": "ink-blob-cursor",
+  "name": "Ink Blob Cursor",
+  "description": "A WebGL cursor effect for React: an ink blot trails the pointer, its edge torn into splashes and droplets by a drifting voronoi noise field, and text over it flips from dark to light with a difference blend wherever the ink passes. Grainy dithered page, an opening where the ink fills the screen and draws back. Raw WebGL2, one pass.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/InkBlobCursor.tsx",
+  "usage": "import InkBlobCursor from '@/components/mfa/InkBlobCursor'\n\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <InkBlobCursor>\n        <h1 className=\"p-8 text-[17vw] leading-none font-bold tracking-tighter\">NOVA LUND</h1>\n      </InkBlobCursor>\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "children", "type": "ReactNode", "default": "—", "description": "Content over the ink, set in white with a difference blend (dark on the page, light on the ink)."},
+    {"name": "background", "type": "string", "default": "'#eeeeee'", "description": "Page colour.", "control": {"kind": "color", "value": "#eeeeee"}},
+    {"name": "ink", "type": "string", "default": "'#000000'", "description": "Ink colour.", "control": {"kind": "color", "value": "#000000"}},
+    {"name": "size", "type": "number", "default": "0.27", "description": "Blob diameter, as a share of the width.", "control": {"kind": "range", "value": 0.27, "min": 0.08, "max": 0.6, "step": 0.01}},
+    {"name": "follow", "type": "number", "default": "0.87", "description": "How far the blob follows the cursor (1 = all the way, 0 = stays centred).", "control": {"kind": "range", "value": 0.87, "min": 0, "max": 1, "step": 0.01}},
+    {"name": "ease", "type": "number", "default": "0.08", "description": "How quickly it catches up (higher = snappier).", "control": {"kind": "range", "value": 0.08, "min": 0.02, "max": 0.5, "step": 0.01}},
+    {"name": "turbulence", "type": "number", "default": "0.15", "description": "How ragged the edge is.", "control": {"kind": "range", "value": 0.15, "min": 0, "max": 0.4, "step": 0.005}},
+    {"name": "noiseScale", "type": "number", "default": "1.166", "description": "How fine the splashes are.", "control": {"kind": "range", "value": 1.166, "min": 0.3, "max": 3, "step": 0.01}},
+    {"name": "wobble", "type": "number", "default": "0.5", "description": "How fast the edge wobbles.", "control": {"kind": "range", "value": 0.5, "min": 0, "max": 3, "step": 0.05}},
+    {"name": "grain", "type": "boolean", "default": "true", "description": "Film-grain dither over the page.", "control": {"kind": "switch", "value": true}},
+    {"name": "intro", "type": "boolean", "default": "true", "description": "Open with the ink filling the screen and drawing back to size."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the wrapper. It fills its parent, so give the parent a height."}
+  ]
+}

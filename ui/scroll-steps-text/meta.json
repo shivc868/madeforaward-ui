@@ -1,0 +1,25 @@
+{
+  "slug": "scroll-steps-text",
+  "name": "Scroll Text Reveal",
+  "description": "A GSAP ScrollTrigger text reveal for React: in a pinned section, letters brighten one by one as you scroll, each flashing in an accent colour and settling to the text colour over a second, so a soft coloured wake trails the reading point; several paragraphs take turns, each rising in line by line. SplitText, re-splits on resize.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/ScrollStepsText.tsx",
+  "usage": "import ScrollStepsText from '@/components/mfa/ScrollStepsText'\n\n// About 7 screens tall: the paragraphs are read in turn while the stage stays pinned.\nexport default function Steps() {\n  return (\n    <ScrollStepsText\n      paragraphs={['First step, in a sentence or two.', 'Second step.', 'Third step.']}\n      accent=\"#1800d1\"\n      className=\"font-sans\"\n    />\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "paragraphs", "type": "string[]", "default": "three sentences", "description": "The paragraphs, read one after another in the same place."},
+    {"name": "accent", "type": "string", "default": "'#1800d1'", "description": "The colour each letter flashes as it lights.", "control": {"kind": "color", "value": "#1800d1"}},
+    {"name": "ink", "type": "string", "default": "'#ffffff'", "description": "Settled text colour.", "control": {"kind": "color", "value": "#ffffff"}},
+    {"name": "background", "type": "string", "default": "'#292929'", "description": "Background colour.", "control": {"kind": "color", "value": "#292929"}},
+    {"name": "dim", "type": "number", "default": "0.2", "description": "Opacity of letters not yet read.", "control": {"kind": "range", "value": 0.2, "min": 0, "max": 0.6, "step": 0.01}},
+    {"name": "settle", "type": "number", "default": "1", "description": "Seconds a letter takes to settle from the accent to the ink (longer = longer wake).", "control": {"kind": "range", "value": 1, "min": 0.2, "max": 3, "step": 0.1}},
+    {"name": "length", "type": "number", "default": "7", "description": "Section height in screens: more is slower reading.", "control": {"kind": "range", "value": 7, "min": 3, "max": 12, "step": 0.5}},
+    {"name": "scroller", "type": "HTMLElement | null", "default": "null (window)", "description": "The scrolling element, when it isn't the window."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the section (the font, for one)."}
+  ]
+}

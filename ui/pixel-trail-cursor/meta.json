@@ -1,0 +1,21 @@
+{
+  "slug": "pixel-trail-cursor",
+  "name": "Pixel Trail Cursor",
+  "description": "A WebGL cursor trail for React: moving the mouse stirs a velocity field that is drawn as a grid of tiny dots, each cell lighting up to seven of them by how hard the cursor moved there, so a quick sweep leaves a dense, dithered streak that thins and breaks up as it fades. Raw WebGL2, no dependencies, renders only while the trail is alive.",
+  "category": "interactions",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/PixelTrailCursor.tsx",
+  "usage": "import PixelTrailCursor from '@/components/mfa/PixelTrailCursor'\n\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <PixelTrailCursor background=\"#1a1c1c\" color=\"#f9f4eb\">\n        <h1 className=\"p-12 text-6xl text-[#f9f4eb]\">We partner with brands that dare to lead.</h1>\n      </PixelTrailCursor>\n    </section>\n  )\n}",
+  "badge": "new",
+  "props": [
+    {"name": "background", "type": "string", "default": "'#1a1c1c'", "description": "Background colour.", "control": {"kind": "color", "value": "#1a1c1c"}},
+    {"name": "color", "type": "string", "default": "'#f9f4eb'", "description": "Colour of the dots.", "control": {"kind": "color", "value": "#f9f4eb"}},
+    {"name": "cellSize", "type": "number", "default": "8", "description": "Grid cell in CSS px; each cell holds a 4×4 pattern of dots.", "control": {"kind": "range", "value": 8, "min": 4, "max": 24, "step": 1}},
+    {"name": "radius", "type": "number", "default": "0.04", "description": "Width of the stroke under the cursor, as a share of the height.", "control": {"kind": "range", "value": 0.04, "min": 0.01, "max": 0.15, "step": 0.005}},
+    {"name": "strength", "type": "number", "default": "0.04", "description": "How much each mouse move adds (higher = denser trail from slower moves).", "control": {"kind": "range", "value": 0.04, "min": 0.01, "max": 0.15, "step": 0.005}},
+    {"name": "persistence", "type": "number", "default": "250", "description": "How slowly the trail fades (higher = longer trail).", "control": {"kind": "range", "value": 250, "min": 60, "max": 1000, "step": 10}},
+    {"name": "children", "type": "ReactNode", "default": "—", "description": "Content laid over the background."},
+    {"name": "className", "type": "string", "default": "''", "description": "Classes for the wrapper. It fills its parent, so give the parent a height."}
+  ]
+}

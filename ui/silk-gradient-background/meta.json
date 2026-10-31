@@ -1,0 +1,99 @@
+{
+  "slug": "silk-gradient-background",
+  "name": "Silk Gradient Background",
+  "description": "An animated WebGL gradient background for React: slow, silky folds with a soft sheen and a thin bright seam, from three colours. Raw WebGL2, no dependencies; pauses off screen.",
+  "category": "backgrounds",
+  "version": "1.0.0",
+  "dependencies": {},
+  "entry": "components/mfa/SilkGradientBackground.tsx",
+  "usage": "import SilkGradientBackground from '@/components/mfa/SilkGradientBackground'\n\nexport default function Hero() {\n  return (\n    <section className=\"h-svh\">\n      <SilkGradientBackground>\n        <h1 className=\"grid h-full place-items-center text-6xl text-white\">Calm by design.</h1>\n      </SilkGradientBackground>\n    </section>\n  )\n}",
+  "props": [
+    {
+      "name": "baseColor",
+      "type": "string",
+      "default": "'#03060f'",
+      "description": "The deepest shadow colour.",
+      "control": {
+        "kind": "color",
+        "value": "#03060f"
+      }
+    },
+    {
+      "name": "midColor",
+      "type": "string",
+      "default": "'#1c3c8c'",
+      "description": "The body of the silk.",
+      "control": {
+        "kind": "color",
+        "value": "#1c3c8c"
+      }
+    },
+    {
+      "name": "highlightColor",
+      "type": "string",
+      "default": "'#a9c1ff'",
+      "description": "The sheen on the folds and the thin seam.",
+      "control": {
+        "kind": "color",
+        "value": "#a9c1ff"
+      }
+    },
+    {
+      "name": "speed",
+      "type": "number",
+      "default": "1",
+      "description": "Flow speed. 0 holds it still.",
+      "control": {
+        "kind": "range",
+        "value": 1,
+        "min": 0,
+        "max": 4,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "scale",
+      "type": "number",
+      "default": "2.2",
+      "description": "Size of the folds. Higher = more, smaller folds.",
+      "control": {
+        "kind": "range",
+        "value": 2.2,
+        "min": 0.5,
+        "max": 5,
+        "step": 0.1
+      }
+    },
+    {
+      "name": "seam",
+      "type": "number",
+      "default": "0.8",
+      "description": "Brightness of the thin seam. 0 hides it.",
+      "control": {
+        "kind": "range",
+        "value": 0.8,
+        "min": 0,
+        "max": 1.5,
+        "step": 0.05
+      }
+    },
+    {
+      "name": "quality",
+      "type": "number",
+      "default": "0.75",
+      "description": "Render resolution as a share of the screen's. The folds are soft, so lower looks nearly the same and costs much less."
+    },
+    {
+      "name": "children",
+      "type": "ReactNode",
+      "default": "—",
+      "description": "Content laid over the background."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the wrapper. It fills its parent, so give the parent a height."
+    }
+  ]
+}

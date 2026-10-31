@@ -1,0 +1,77 @@
+{
+  "slug": "scramble-text",
+  "name": "Scramble Text",
+  "description": "A GSAP scramble text effect: a band of random glyphs runs ahead of the text and resolves it left to right. Plays on load, on scroll or on hover, without the text ever changing size.",
+  "category": "text",
+  "version": "1.0.0",
+  "dependencies": {
+    "gsap": "^3.13.0",
+    "@gsap/react": "^2.1.2"
+  },
+  "entry": "components/mfa/ScrambleText.tsx",
+  "usage": "import ScrambleText from '@/components/mfa/ScrambleText'\n\nexport default function Nav() {\n  return (\n    <nav className=\"flex gap-8 font-mono uppercase\">\n      <ScrambleText as=\"span\" trigger=\"hover\" text=\"Work\" />\n      <ScrambleText as=\"span\" trigger=\"hover\" text=\"Contact\" />\n    </nav>\n  )\n}",
+  "props": [
+    {
+      "name": "text",
+      "type": "string",
+      "default": "sample sentence",
+      "description": "The text to resolve."
+    },
+    {
+      "name": "duration",
+      "type": "number",
+      "default": "1.4",
+      "description": "Seconds for the whole text to resolve.",
+      "control": {"kind": "range", "value": 1.4, "min": 0.3, "max": 4, "step": 0.1}
+    },
+    {
+      "name": "spread",
+      "type": "number",
+      "default": "0.3",
+      "description": "Share of the text scrambling at once, ahead of the resolved part.",
+      "control": {"kind": "range", "value": 0.3, "min": 0.05, "max": 1, "step": 0.05}
+    },
+    {
+      "name": "glyphs",
+      "type": "string",
+      "default": "A–Z, 0–9, symbols",
+      "description": "The characters shown while scrambling."
+    },
+    {
+      "name": "trigger",
+      "type": "'view' | 'mount' | 'hover'",
+      "default": "'view'",
+      "description": "'view' plays once in view, 'mount' right away, 'hover' only when hovered (the text shows normally until then)."
+    },
+    {
+      "name": "replayOnHover",
+      "type": "boolean",
+      "default": "true",
+      "description": "Replay whenever the pointer enters, after the first play."
+    },
+    {
+      "name": "start",
+      "type": "string",
+      "default": "'top 85%'",
+      "description": "When 'view' starts, as a ScrollTrigger start."
+    },
+    {
+      "name": "scroller",
+      "type": "Element | string",
+      "default": "window",
+      "description": "The scrolling element, if the text sits inside its own scroll container."
+    },
+    {
+      "name": "as",
+      "type": "'p' | 'h1' | 'h2' | 'h3' | 'div' | 'span'",
+      "default": "'p'",
+      "description": "The element to render."
+    },
+    {
+      "name": "className",
+      "type": "string",
+      "default": "''",
+      "description": "Classes for the text element. Monospaced fonts scramble without any width wobble."
+    }
+  ]
+}
